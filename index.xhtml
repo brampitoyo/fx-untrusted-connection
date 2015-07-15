@@ -206,11 +206,10 @@ functionality specific to firefox. -->
 <!-- This Source Code Form is subject to the terms of the Mozilla Public
    - License, v. 2.0. If a copy of the MPL was not distributed with this
    - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
-<html xmlns="http://www.w3.org/1999/xhtml" hasBrowserHandlers="true">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <title>Problem loading page</title>
-    <link rel="stylesheet" href="Problem%20loading%20page_files/aboutNetError.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="chrome://browser/skin/aboutNetError.css" type="text/css" media="all" />
     <!-- If the location of the favicon is changed here, the FAVICON_ERRORPAGE_URL symbol in
          toolkit/components/places/src/nsFaviconService.h should be updated. -->
     <link rel="icon" type="image/png" id="favicon" href="chrome://global/skin/icons/warning-16.png" />
@@ -281,6 +280,43 @@ functionality specific to firefox. -->
         buttonEl.disabled = true;
       }
 
+      function toggleDisplay(node) {
+        toggle = {
+          '': 'block',
+          'none': 'block',
+          'block': 'none'
+        };
+        node.style.display = toggle[node.style.display];
+      }
+
+      function showCertificateErrorReporting() {
+        // Display error reporting UI
+        document.getElementById('certificateErrorReporting').style.display = 'block';
+
+        // Get the hostname and add it to the panel
+        document.getElementById('hostname').textContent = document.location.hostname;
+
+        // Register click handler for the certificateErrorReportingPanel
+        document.getElementById('showCertificateErrorReportingPanel')
+                .addEventListener('click', function togglePanelVisibility() {
+          var panel = document.getElementById('certificateErrorReportingPanel');
+          toggleDisplay(panel);
+
+          if (panel.style.display == "block") {
+            // send event to trigger telemetry ping
+            var event = new CustomEvent("AboutNetErrorUIExpanded", {bubbles:true});
+            document.dispatchEvent(event);
+          }
+        });
+      }
+
+
+      function sendErrorReport() {
+        var event = new CustomEvent("AboutNetErrorSendReport", {bubbles:true});
+
+        document.dispatchEvent(event);
+      }
+
       function initPage()
       {
         var err = getErrorCode();
@@ -315,6 +351,16 @@ functionality specific to firefox. -->
           errDesc.id = "errorLongDesc";
         }
 
+        if (err == "sslv3Used") {
+          var learnMoreText = document.getElementById("learn_more_ssl3");
+
+          errTitle.setAttribute("sslv3", "true");
+
+          var retryBtn = document.getElementById("errorTryAgain");
+          retryBtn.textContent = learnMoreText.textContent;
+          retryBtn.setAttribute("onclick", "learnMoreSSLV3()");
+        }
+
         // remove undisplayed errors to avoid bug 39098
         var errContainer = document.getElementById("errorContainer");
         errContainer.parentNode.removeChild(errContainer);
@@ -345,11 +391,48 @@ functionality specific to firefox. -->
           document.getElementById("errorTryAgain").style.display = "none";
         }
 
-        if (err == "cspFrameAncestorBlocked") {
-          // Remove the "Try again" button for CSP frame ancestors violation, since it's
+        if (err == "cspBlocked") {
+          // Remove the "Try again" button for CSP violations, since it's
           // almost certainly useless. (Bug 553180)
           document.getElementById("errorTryAgain").style.display = "none";
         }
+
+        window.addEventListener("AboutNetErrorOptions", function(evt) {
+        // Pinning errors are of type nssFailure2
+          if (getErrorCode() == "nssFailure2") {
+            var learnMoreLink = document.getElementById("learnMoreLink");
+            // nssFailure2 also gets us other non-overrideable errors. Choose
+            // a "learn more" link based on description:
+            if (getDescription().includes("mozilla_pkix_error_key_pinning_failure")) {
+              learnMoreLink.href = "https://support.mozilla.org/kb/certificate-pinning-reports";
+            }
+
+            var options = JSON.parse(evt.detail);
+            if (options && options.enabled) {
+              var checkbox = document.getElementById('automaticallyReportInFuture');
+              showCertificateErrorReporting();
+              if (options.automatic) {
+                // set the checkbox
+                checkbox.checked = true;
+              }
+
+              checkbox.addEventListener('change', function(evt) {
+                  var event = new CustomEvent("AboutNetErrorSetAutomatic",
+                    {bubbles:true, detail:evt.target.checked});
+                  document.dispatchEvent(event);
+                }, false);
+
+              var reportBtn = document.getElementById('reportCertificateError');
+              var retryBtn = document.getElementById('reportCertificateErrorRetry');
+
+              reportBtn.addEventListener('click', sendErrorReport, false);
+              retryBtn.addEventListener('click', sendErrorReport, false);
+            }
+          }
+        }.bind(this), true, true);
+
+        var event = new CustomEvent("AboutNetErrorLoad", {bubbles:true});
+        document.dispatchEvent(event);
 
         if (err == "nssBadCert") {
           // Remove the "Try again" button for security exceptions, since it's
@@ -452,116 +535,12 @@ functionality specific to firefox. -->
         return haystack.slice(-needle.length) == needle;
       }
 
+      function learnMoreSSLV3() {
+        location.href = "https://support.mozilla.org/kb/how-resolve-sslv3-error-messages-firefox";
+        // Ensure users don't re-click the button:
+        e.target.disabled = true;
+      }
     ]]></script>
-  
-<style type="text/css">
-  #searchField {
-    -moz-appearance: searchfield;
-    display: block;
-    width: 80%;
-    font-size: 16px;
-    padding: 4px 0 4px 16px;
-    margin-top: 3px;
-    transform: translate(-3px, 0);
-  }
-
-  #searchBar {
-    margin-bottom: 100px;
-    margin-top: 30px;
-  }
-
-  #searchBar span {
-    opacity: 0.5;
-  }
-
-  #searchBar label {
-    font-size: 80%;
-  }
-
-  #searchButton {
-    position: absolute;
-    z-index: 10;
-    right: 10%;
-    top: 2px;
-    color: #fff;
-    background-color: #0095DD;
-    border: 1px solid #006ca0;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    opacity: 1 !important;
-    font-size: 14px;
-    padding: 4px 8px 5px 8px;
-  }
-
-  #autoCorrectDesc {
-    font-style: italic;
-    margin-top: 5px;
-  }
-
-  a {
-    font-size: inherit;
-  }
-
-  #errorLongContent {
-    margin-bottom: -70px;
-  }
-
-  #errorLongDesc {
-    margin-top: -25px;
-    padding-right: 55px;
-    text-align: right;
-  }
-
-  #errorLongDesc ul {
-    text-align: left;
-    max-width: 500px;
-    margin-top: 20px;
-  }
-
-  #errorPageContainer {
-    min-width: 45%;
-    margin-top: -30px;
-  }
-
-  #errorTryAgain {
-    /*display: none;*/
-  }
-
-  #errorTitleText {
-    background: url("aboutNetError_info.svg") no-repeat scroll left 0px / 1.2em auto transparent;
-  -moz-margin-start: -2em;
-  -moz-padding-start: 2em;
-  }
-
-  #errorShortDescText {
-    margin: 0;
-  }
-
-  #moreInformation {
-    position: absolute;
-    right: 420px;
-    max-width: 400px;
-    margin-top: 10px;
-    background-color: #fff;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    border-radius: 3px;
-    padding: 10px 15px;
-    text-align: left;
-    font-size: 0.8em;
-  }
-
-  #moreInformation td {
-    padding-bottom: 15px;
-  }
-
-  #moreInformation button {
-    width: 120px;
-  }
-
-  .pingErrorMsg {
-    font-weight: bold;
-  }
-</style>
   </head>
 
   <body dir="ltr">
@@ -574,7 +553,7 @@ functionality specific to firefox. -->
 
       <!-- Error Title -->
       <div id="errorTitle">
-        <h1 id="errorTitleText">Website not found</h1>
+        <h1 id="errorTitleText">Secure Connection Failed</h1>
       </div>
 
       <!-- LONG CONTENT (the section most likely to require scrolling) -->
@@ -582,36 +561,30 @@ functionality specific to firefox. -->
 
         <!-- Short Description -->
         <div id="errorShortDesc">
-          <p id="errorShortDescText">Firefox can't find the server at whimsy.mozla.cmo.</p>
+          <p id="errorShortDescText">An error occurred during a connection to rc4.badssl.com.
+
+Cannot communicate securely with peer: no common encryption algorithm(s).
+
+(Error code: ssl_error_no_cypher_overlap)
+</p>
         </div>
 
-        <div id="autoCorrect">
-          <p id="autoCorrectDesc">Did you mean <a href="http://whimsy.mozla.com">whimsy.mozla.com</a>?</p>
-        </div>
-
-<div id="searchBar">
-<label>
-  <span>Search for this page instead</span>
-  <div style="position: relative">
-    <input id="searchField" type="text" value="whimsy mozla" autofocus="true" />
-    <span id="searchButton">Search</span>
-  </div>
-</label>
+        <!-- Long Description (Note: See netError.dtd for used XHTML tags) -->
+        <div id="errorLongDesc">
+<ul>
+  <li>The page you are trying to view cannot be shown because the authenticity of the received data could not be verified.</li>
+  <li>Please contact the website owners to inform them of this problem.</li>
+</ul>
 </div>
-<script type="text/javascript">
-  var searchField = document.getElementById('searchField');
-  searchField.setSelectionRange(0, searchField.value.length);
-</script>
-
-
 
         <!-- Override section - For ssl errors only.  Removed on init for other
              error types.  -->
         
+
       </div>
 
       <!-- Retry Button -->
-      <button id="errorTryAgain" autocomplete="off" onclick="retryThis(this);">Try Again</button>
+      <button id="errorTryAgain" autocomplete="off" onclick="retryThis(this);" autofocus="true">Try Again</button>
       <script>
         // Only do autofocus if we're the toplevel frame; otherwise we
         // don't want to call attention to ourselves!  The key part is
@@ -628,68 +601,32 @@ functionality specific to firefox. -->
         }
       </script>
 
+      <!-- UI for option to report certificate errors to Mozilla. Removed on
+           init for other error types .-->
+      <div id="certificateErrorReporting" style="display: block;">
+        <a id="showCertificateErrorReportingPanel" href="#">Report this error<span class="downArrow"> ▼</span></a>
+      </div>
 
-<!-- Long Description (Note: See netError.dtd for used XHTML tags) -->
-        <div id="errorLongDesc">
-        <a href="#" id="moreInformationLink">More Options</a>
-<div id="moreInformation" style="display:none">
-  <table>
-    <tr id="pingRow">
-      <td>Check if the server whimsy.mozla.cmo is reachable at all</td>
-      <td ><button id="checkButton">Check now</button></td>
-    </tr>
-    <tr>
-      <td>If you are protected by a firewall or proxy, perhaps your settings are incorrect</td>
-      <td><button>Proxy Settings</button></td>
-    </tr>
-  </table>
-</div>
-</div>
-<script type="text/javascript">
-  var pingCount = 0;
-  var moreLink = document.getElementById('moreInformationLink');
-  var moreInformation = document.getElementById('moreInformation');
-  var defaultContent = moreInformation.innerHTML;
-  moreLink.addEventListener('click', function(e) {
-    e.preventDefault();
-    if (moreInformation.style.display == "none") {
-      moreInformation.style.display = "block";
-      moreLink.innerHTML = "Hide Options";
-    } else {
-      moreInformation.style.display = "none";
-      moreLink.innerHTML = "More Options";
-      moreInformation.innerHTML = defaultContent;
-      setupListener();
-    }
-  });
-
-  function setupListener() {
-    var checkButton = document.getElementById('checkButton');
-    var pingRow = document.getElementById('pingRow');
-    checkButton.addEventListener('click', function(e) {
-      var td = document.createElement('td');
-      td.setAttribute('colspan', '2');
-      td.setAttribute('class', 'pingErrorMsg');
-      if (pingCount % 2 === 0) {
-        td.innerHTML = "It seems like Firefox can't reach any website. Please check your network connection.";
-      } else {
-        td.innerHTML = "The server whimsy.mozla.com is reachable. Perhaps you are behind a firewall or this site is blocked in your country.";
-      }
-      pingCount++;
-      pingRow.innerHTML = "";
-      pingRow.appendChild(td);
-    });
-  }
-  setupListener();
-</script>
-
+      <div id="certificateErrorReportingPanel">
+        <div id="certificateErrorReportingDescription">
+          <p>Reporting the address and certificate information for <span id="hostname">rc4.badssl.com</span> will help us identify and block malicious sites. Thanks for helping create a safer web!</p>
+          <p>
+            <input type="checkbox" id="automaticallyReportInFuture" />
+            <label for="automaticallyReportInFuture" id="automaticallyReportInFuture">Automatically report errors in the future</label>
+          </p>
+        </div>
+        <div id="errorStatePanel">
+          <a href="https://support.mozilla.org/kb/tls-error-reports" id="learnMoreLink" target="new">Learn more…</a>
+          <span id="reportingState">
+            <button id="reportCertificateError">Report</button>
+            <button id="reportCertificateErrorRetry" style="display: none;">Try again</button>
+            <span id="reportSendingMessage" style="display: none;">Sending report</span>
+            <span id="reportSentMessage" style="display: none;">Report sent</span>
+          </span>
+        </div>
+      </div>
 
     </div>
-
-
-    
-
-
 
     <!--
     - Note: It is important to run the script this way, instead of using
