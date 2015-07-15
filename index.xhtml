@@ -561,7 +561,7 @@ functionality specific to firefox. -->
 
         <!-- Short Description -->
         <div id="errorShortDesc">
-          <p id="errorShortDescText">If you visit <span id="hostname">badssl.com</span>, your information could be stolen by malicious attackers. It’s a fault with the website, not your device or internet connection.</p>
+          <p id="errorShortDescText">If you visit <span id="hostname">expired.badssl.com</span>, your information could be stolen by malicious attackers. It’s a fault with the website, not your device or internet connection.</p>
         </div>
         <div id="errorShortDesc">
           <p id="errorShortDescText"><a href="https://support.mozilla.org/kb/tls-error-reports" id="learnMoreLink" target="new">Learn more…</a></p>
@@ -594,7 +594,9 @@ functionality specific to firefox. -->
       
         <div id="certificateErrorReportingPanel">
           <div id="certificateErrorReportingDescription">
-            <p>An error occurred during a connection to <span id="hostname">rc4.badssl.com</span>. Cannot communicate securely with peer: no common encryption algorithm(s). (Error code: ssl_error_no_cypher_overlap)</p>
+            <p><span id="hostname">expired.badssl.com</span> uses an invalid security certificate.</p>
+            <p>The certificate expired on Monday, July 13, 2015, and your current time is Wednesday, July 15, 2015.</p>
+            <p>(Error code: sec_error_expired_certificate)</p>
             <hr style="margin: 1.25em 0 .9em;"></hr>
             <p>Never enter your password, credit card and other personal information on the website.</p>
           </div>
