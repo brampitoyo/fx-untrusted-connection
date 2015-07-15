@@ -553,7 +553,7 @@ functionality specific to firefox. -->
 
       <!-- Error Title -->
       <div id="errorTitle">
-        <h1 id="errorTitleText">This website doesn’t let you connect to it securely</h1>
+        <h1 id="errorTitleText">Cannot Connect Securely</h1>
       </div>
 
       <!-- LONG CONTENT (the section most likely to require scrolling) -->
@@ -561,7 +561,9 @@ functionality specific to firefox. -->
 
         <!-- Short Description -->
         <div id="errorShortDesc">
-          <p id="errorShortDescText">The fault lies with the website, not your device or internet connection.</p>
+          <p id="errorShortDescText">If you visit <span id="hostname">badssl.com</span>, your information could be stolen by malicious attackers. It’s a fault with the website, not your device or internet connection.</p>
+        </div>
+        <div id="errorShortDesc">
           <p id="errorShortDescText"><a href="https://support.mozilla.org/kb/tls-error-reports" id="learnMoreLink" target="new">Learn more…</a></p>
         </div>
         
@@ -585,35 +587,32 @@ functionality specific to firefox. -->
   
         <!-- UI for option to report certificate errors to Mozilla. Removed on
              init for other error types .-->
-        <div id="certificateErrorReporting" style="display: inline-block; margin-right:1em; margin-top:0; float:none;">
-            <p>
-              <input type="checkbox" id="automaticallyReportInFuture" />
-              <label for="automaticallyReportInFuture" id="automaticallyReportInFuture">Report error</label>
-            </p>
-
-        </div>
         
-                <div id="certificateErrorReporting" style="display:block;">
-          <a id="showCertificateErrorReportingPanel" href="#">Technical details <span class="downArrow"> ▼</span></a>
+        <div id="certificateErrorReporting">
+          <a id="showCertificateErrorReportingPanel" href="#">Technical details<span class="downArrow"> ▼</span></a>
         </div>
-
-    </div>
-        
+      
         <div id="certificateErrorReportingPanel">
           <div id="certificateErrorReportingDescription">
             <p>An error occurred during a connection to <span id="hostname">rc4.badssl.com</span>. Cannot communicate securely with peer: no common encryption algorithm(s). (Error code: ssl_error_no_cypher_overlap)</p>
-            <ul>
-              <li>The page you are trying to view cannot be shown because the authenticity of the received data could not be verified.</li>
-              <li>Please contact the website owners to inform them of this problem.</li>
-            </ul>
-            <p></p>
+            <hr style="margin: 1.25em 0 .9em;"></hr>
+            <p>Never enter your password, credit card and other personal information on the website.</p>
           </div>
           <div id="errorStatePanel">
             <a></a>
             <span id="reportingState" style="float:right;">
-              <button id="reportCertificateError" style="opacity:.5; cursor:not-allowed;">Proceed anyway (insecure)</button>
+              <button id="reportCertificateError" style="opacity:.5; cursor:not-allowed;">I Understand the Risk (insecure)</button>
             </span>
           </div>
+        </div>
+      
+    </div>
+        
+        <div id="errorShortDesc">
+          <p>
+            <input type="checkbox" id="automaticallyReportInFuture" />
+            <label for="automaticallyReportInFuture" id="automaticallyReportInFuture">Never send error report to Mozilla</label>
+          </p>  
         </div>
 
         <!-- Override section - For ssl errors only.  Removed on init for other
