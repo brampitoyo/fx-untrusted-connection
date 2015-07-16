@@ -553,7 +553,7 @@ functionality specific to firefox. -->
 
       <!-- Error Title -->
       <div id="errorTitle">
-        <h1 id="errorTitleText">Cannot Connect Securely</h1>
+        <h1 id="errorTitleText">Your connection is not private</h1>
       </div>
 
       <!-- LONG CONTENT (the section most likely to require scrolling) -->
@@ -561,15 +561,15 @@ functionality specific to firefox. -->
 
         <!-- Short Description -->
         <div id="errorShortDesc">
-          <p id="errorShortDescText">The owner of <span id="hostname">expired.badssl.com</span> has set up their website insecurely.  To protect your information from being stolen, Firefox has not connected to the website.</p>
+          <p id="errorShortDescText">The owner of <span id="hostname">expired.badssl.com</span> has configured their website improperly.  To protect your information from being stolen, Firefox has not connected to this website.</p>
         </div>
         <div id="errorShortDesc">
           <p id="errorShortDescText"><a href="https://support.mozilla.org/kb/tls-error-reports" id="learnMoreLink" target="new">Learn more…</a></p>
         </div>
         
         <!-- Retry Button -->
-        <button id="errorTryAgain" autocomplete="off" onclick="retryThis(this);" autofocus="true">Go Back</button>
-        <button id="errorTryAgain" autocomplete="off" onclick="retryThis(this);" autofocus="true">Try without security (unsafe)</button>
+        <button id="errorTryAgain" autocomplete="off" onclick="retryThis(this);" autofocus="true">Return to Previous Page</button>
+        <button id="errorTryAgain" autocomplete="off" onclick="retryThis(this);" autofocus="true">Technical Details (dangerous)</button>
 
         <script>
           // Only do autofocus if we're the toplevel frame; otherwise we
@@ -599,17 +599,18 @@ functionality specific to firefox. -->
         
         <div id="certificateErrorReportingPanel" style="display: block;">
           <div id="certificateErrorReportingDescription">
-            <p><b>Technical Details</b></p>
-            <hr style="margin: 1.25em 0 .9em;"></hr>
+            <!--<p><b>Technical Details</b></p>
+            <hr style="margin: 1.25em 0 .9em;"></hr> -->
             <p><span id="hostname">expired.badssl.com</span> uses a security certificate that’s out of date.</p>
-            <p>The certificate expired on Monday, July 13, 2015, but your current time is set to Wednesday, July 15, 2015. (Error: sec_error_expired_certificate)</p>
-            <hr style="margin: 1.25em 0 .9em;"></hr>
-            <p>Never enter your password, credit card and other personal information on the website.</p>
+            <p>The certificate expired on Monday, July 13, 2015, and your computer reports that today is Wednesday, July 15, 2015.</p>
+            <p style="color: #AAAAAA; white-space: nowrap;">Error: <span style="text-transform: uppercase;">sec_error_expired_certificate</span></p>
+            <!--<hr style="margin: 1.25em 0 .9em;"></hr>
+            <p>Never enter your password, credit card and other personal information on the website.</p> -->
           </div>
           <div id="errorStatePanel">
             <a></a>
             <span id="reportingState" style="float:right;">
-              <a href="untrusted-connection-warning-ui.png"><button id="reportCertificateError" style="opacity:.5; cursor:not-allowed;">I Understand the Risk (insecure)</button></a>
+              <a href="untrusted-connection-warning-ui.png"><button id="reportCertificateError" style="cursor:not-allowed; height: auto; background-color: rgb(255, 143, 143); width: 75%; margin: 1em 12.5% .5em 12.5%;">I wish to proceed to <span id="hostname">expired.badssl.com</span> even though my personal information may be at risk.</button></a>
             </span>
           </div>
         </div>
