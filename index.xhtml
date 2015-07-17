@@ -289,6 +289,15 @@ functionality specific to firefox. -->
         node.style.display = toggle[node.style.display];
       }
 
+      function toggleVisibility(node) {
+        toggle = {
+          '': 'inherit',
+          'hidden': 'inherit',
+          'inherit': 'hidden'
+        };
+        node.style.visibility = toggle[node.style.visibility];
+      }
+
       function showCertificateErrorReporting() {
         // Display error reporting UI
         document.getElementById('certificateErrorReporting').style.display = 'block';
@@ -569,7 +578,7 @@ functionality specific to firefox. -->
         
         <!-- Retry Button -->
         <button id="errorTryAgain" autocomplete="off" onclick="retryThis(this);" autofocus="true">Return to Previous Page</button>
-        <button id="errorTryAgain" autocomplete="off" onclick="retryThis(this);" autofocus="true">Technical Details</button>
+        <button id="errorTryAgain" autocomplete="off" onclick="toggleVisibility(document.getElementById('certificateErrorReportingPanel'));" autofocus="true">Technical Details</button>
 
         <script>
           // Only do autofocus if we're the toplevel frame; otherwise we
@@ -597,7 +606,7 @@ functionality specific to firefox. -->
         <!-- UI for option to report certificate errors to Mozilla. Removed on
              init for other error types .-->
         
-        <div id="certificateErrorReportingPanel" style="display: block;">
+        <div id="certificateErrorReportingPanel" style="display: block; visibility: hidden;">
           <div id="certificateErrorReportingDescription">
             <!--<p><b>Technical Details</b></p>
             <hr style="margin: 1.25em 0 .9em;"></hr> -->
