@@ -612,7 +612,7 @@ functionality specific to firefox. -->
             <hr style="margin: 1.25em 0 .9em;"></hr> -->
             <p><span id="hostname">expired.badssl.com</span> uses a security certificate that’s out of date.</p>
             <p>The certificate expired on Monday, July 13, 2015, but your computer reports that today is Wednesday, July 15, 2015.</p>
-            <p style="color: #AAAAAA; white-space: nowrap;">Error: <span style="text-transform: uppercase;">sec_error_expired_certificate</span></p>
+            <p style="color: #AAAAAA; white-space: nowrap;">Error: <span onclick="toggleDisplay(document.getElementById('certificateErrorDebugInformation'));" style="text-transform: uppercase;">sec_error_expired_certificate</span></p>
             <!--<hr style="margin: 1.25em 0 .9em;"></hr>
             <p>Never enter your password, credit card and other personal information on the website.</p> -->
           </div>
@@ -631,6 +631,105 @@ functionality specific to firefox. -->
         
 
       </div>
+            <div id="certificateErrorDebugInformation">
+depth=3 C = SE, O = AddTrust AB, OU = AddTrust External TTP Network, CN = AddTrust External CA Root
+verify return:1
+depth=2 C = GB, ST = Greater Manchester, L = Salford, O = COMODO CA Limited, CN = COMODO RSA Certification Authority
+verify return:1
+depth=1 C = GB, ST = Greater Manchester, L = Salford, O = COMODO CA Limited, CN = COMODO RSA Domain Validation Secure Server CA
+verify return:1
+depth=0 OU = Domain Control Validated, OU = PositiveSSL Wildcard, CN = *.badssl.com
+verify error:num=10:certificate has expired
+notAfter=Apr 12 23:59:59 2015 GMT
+verify return:1
+depth=0 OU = Domain Control Validated, OU = PositiveSSL Wildcard, CN = *.badssl.com
+notAfter=Apr 12 23:59:59 2015 GMT
+verify return:1
+---
+Certificate chain
+ 0 s:/OU=Domain Control Validated/OU=PositiveSSL Wildcard/CN=*.badssl.com
+   i:/C=GB/ST=Greater Manchester/L=Salford/O=COMODO CA Limited/CN=COMODO RSA Domain Validation Secure Server CA
+ 1 s:/C=GB/ST=Greater Manchester/L=Salford/O=COMODO CA Limited/CN=COMODO RSA Domain Validation Secure Server CA
+   i:/C=GB/ST=Greater Manchester/L=Salford/O=COMODO CA Limited/CN=COMODO RSA Certification Authority
+ 2 s:/C=GB/ST=Greater Manchester/L=Salford/O=COMODO CA Limited/CN=COMODO RSA Certification Authority
+   i:/C=SE/O=AddTrust AB/OU=AddTrust External TTP Network/CN=AddTrust External CA Root
+---
+Server certificate
+-----BEGIN CERTIFICATE-----
+MIIFSzCCBDOgAwIBAgIQSueVSfqavj8QDxekeOFpCTANBgkqhkiG9w0BAQsFADCB
+kDELMAkGA1UEBhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4G
+A1UEBxMHU2FsZm9yZDEaMBgGA1UEChMRQ09NT0RPIENBIExpbWl0ZWQxNjA0BgNV
+BAMTLUNPTU9ETyBSU0EgRG9tYWluIFZhbGlkYXRpb24gU2VjdXJlIFNlcnZlciBD
+QTAeFw0xNTA0MDkwMDAwMDBaFw0xNTA0MTIyMzU5NTlaMFkxITAfBgNVBAsTGERv
+bWFpbiBDb250cm9sIFZhbGlkYXRlZDEdMBsGA1UECxMUUG9zaXRpdmVTU0wgV2ls
+ZGNhcmQxFTATBgNVBAMUDCouYmFkc3NsLmNvbTCCASIwDQYJKoZIhvcNAQEBBQAD
+ggEPADCCAQoCggEBAMIE7PiM7gTCs9hQ1XBYzJMY61yoaEmwIrX5lZ6xKyx2PmzA
+S2BMTOqytMAPgLaw+XLJhgL5XEFdEyt/ccRLvOmULlA3pmccYYz2QULFRtMWhyef
+dOsKnRFSJiFzbIRMeVXk0WvoBj1IFVKtsyjbqv9u/2CVSndrOfEk0TG23U3AxPxT
+uW1CrbV8/q71FdIzSOciccfCFHpsKOo3St/qbLVytH5aohbcabFXRNsKEqveww9H
+dFxBIuGa+RuT5q0iBikusbpJHAwnnqP7i/dAcgCskgjZjFeEU4EFy+b+a1SYQCeF
+xxC7c3DvaRhBB0VVfPlkPz0sw6l865MaTIbRyoUCAwEAAaOCAdUwggHRMB8GA1Ud
+IwQYMBaAFJCvajqUWgvYkOoSVnPfQ7Q6KNrnMB0GA1UdDgQWBBSd7sF7gQs6R2lx
+GH0RN5O8pRs/+zAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUE
+FjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwTwYDVR0gBEgwRjA6BgsrBgEEAbIxAQIC
+BzArMCkGCCsGAQUFBwIBFh1odHRwczovL3NlY3VyZS5jb21vZG8uY29tL0NQUzAI
+BgZngQwBAgEwVAYDVR0fBE0wSzBJoEegRYZDaHR0cDovL2NybC5jb21vZG9jYS5j
+b20vQ09NT0RPUlNBRG9tYWluVmFsaWRhdGlvblNlY3VyZVNlcnZlckNBLmNybDCB
+hQYIKwYBBQUHAQEEeTB3ME8GCCsGAQUFBzAChkNodHRwOi8vY3J0LmNvbW9kb2Nh
+LmNvbS9DT01PRE9SU0FEb21haW5WYWxpZGF0aW9uU2VjdXJlU2VydmVyQ0EuY3J0
+MCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5jb21vZG9jYS5jb20wIwYDVR0RBBww
+GoIMKi5iYWRzc2wuY29tggpiYWRzc2wuY29tMA0GCSqGSIb3DQEBCwUAA4IBAQBq
+evHa/wMHcnjFZqFPRkMOXxQhjHUa6zbgH6QQFezaMyV8O7UKxwE4PSf9WNnM6i1p
+OXy+l+8L1gtY54x/v7NMHfO3kICmNnwUW+wHLQI+G1tjWxWrAPofOxkt3+IjEBEH
+fnJ/4r+3ABuYLyw/zoWaJ4wQIghBK4o+gk783SHGVnRwpDTysUCeK1iiWQ8dSO/r
+ET7BSp68ZVVtxqPv1dSWzfGuJ/ekVxQ8lEEFeouhN0fX9X3c+s5vMaKwjOrMEpsi
+8TRwz311SotoKQwe6Zaoz7ASH1wq7mcvf71z81oBIgxw+s1F73hczg36TuHvzmWf
+RwxPuzZEaFZcVlmtqoq8
+-----END CERTIFICATE-----
+subject=/OU=Domain Control Validated/OU=PositiveSSL Wildcard/CN=*.badssl.com
+issuer=/C=GB/ST=Greater Manchester/L=Salford/O=COMODO CA Limited/CN=COMODO RSA Domain Validation Secure Server CA
+---
+No client certificate CA names sent
+Peer signing digest: SHA1
+Server Temp Key: ECDH, P-256, 256 bits
+---
+SSL handshake has read 5008 bytes and written 501 bytes
+---
+New, TLSv1/SSLv3, Cipher is ECDHE-RSA-AES128-GCM-SHA256
+Server public key is 2048 bit
+Secure Renegotiation IS supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+SSL-Session:
+    Protocol  : TLSv1.2
+    Cipher    : ECDHE-RSA-AES128-GCM-SHA256
+    Session-ID-ctx:
+    Key-Arg   : None
+    PSK identity: None
+    PSK identity hint: None
+    SRP username: None
+    TLS session ticket lifetime hint: 300 (seconds)
+    TLS session ticket:
+    0000 - 0d 1e 5d 43 87 3a 93 74-27 4d 6a bc 72 e9 da 0d   ..]C.:.t'Mj.r...
+    0010 - d2 93 57 82 06 d5 c8 c6-29 e4 5e 2f 5a f8 2d 22   ..W.....).^/Z.-"
+    0020 - 33 b1 54 9b 76 1a d1 ce-85 5f 4e 51 97 b0 de 53   3.T.v...._NQ...S
+    0030 - d1 f5 cf ff b4 d9 98 e9-88 fe ff 7a e6 d0 15 ac   ...........z....
+    0040 - 8f bc af f7 14 72 52 e0-50 7d 1e 29 4a 19 e5 0d   .....rR.P}.)J...
+    0050 - cc ed a5 61 d6 eb 30 cd-45 92 70 63 29 6d 8b 03   ...a..0.E.pc)m..
+    0060 - 2a 24 f7 61 f7 9a dc ee-db 37 23 37 86 59 a3 93   *$.a.....7#7.Y..
+    0070 - d6 79 4d 02 df 4f 39 2e-2c 7a d5 26 e6 bc 02 ec   .yM..O9.,z.&amp;....
+    0080 - e5 c0 60 88 df 7d 7d 61-20 99 60 ee 4a 66 1a 51   ..`..}}a .`.Jf.Q
+    0090 - 71 1e 1e 52 d3 ad eb 87-25 53 17 6f fe 07 92 b0   q..R....%S.o....
+    00a0 - fb fb 57 ba e8 7c 3a 78-a3 1b f5 b0 21 f4 ae d4   ..W..|:x....!...
+    00b0 - d5 70 66 d2 0b bf 42 49-df b4 8b ad 76 11 ae 11   .pf...BI....v...
+
+    Start Time: 1437406064
+    Timeout   : 300 (sec)
+    Verify return code: 10 (certificate has expired)
+---
+            </div>
+
     <!--
     - Note: It is important to run the script this way, instead of using
     - an onload handler. This is because error pages are loaded as

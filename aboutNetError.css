@@ -159,3 +159,12 @@ span#hostname {
   top:1px;
 }
 
+#certificateErrorDebugInformation {
+  display: none;
+  font-family: monospace;
+  position: absolute;
+  left: 12.5%;
+  top: 100%;
+  white-space: pre;
+  width: 75%;
+}
