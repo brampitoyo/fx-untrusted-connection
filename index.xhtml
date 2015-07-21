@@ -577,8 +577,8 @@ functionality specific to firefox. -->
         </div>
         
         <!-- Retry Button -->
-        <button id="errorTryAgain" autocomplete="off" onclick="retryThis(this);" autofocus="true" style="margin-left: 0;">Return to Previous Page</button>
-        <button id="errorTryAgain" autocomplete="off" onclick="toggleVisibility(document.getElementById('certificateErrorReportingPanel'));" autofocus="true">Advanced</button>
+        <button id="errorTryAgain" class="returnButton" autocomplete="off" onclick="retryThis(this);" autofocus="true" style="margin-left: 0;">Return to Previous Page</button>
+        <button id="errorTryAgain" class="advancedButton" autocomplete="off" onclick="toggleVisibility(document.getElementById('certificateErrorReportingPanel'));" autofocus="true">Advanced</button>
 
         <script>
           // Only do autofocus if we're the toplevel frame; otherwise we
@@ -613,8 +613,6 @@ functionality specific to firefox. -->
             <p><span id="hostname">expired.badssl.com</span> uses a security certificate that’s out of date.</p>
             <p>The certificate expired on Monday, July 13, 2015, but your computer reports that today is Wednesday, July 15, 2015.</p>
             <p style="color: #AAAAAA; white-space: nowrap;">Error: <span onclick="toggleDisplay(document.getElementById('certificateErrorDebugInformation'));" style="text-transform: uppercase;">sec_error_expired_certificate</span></p>
-            <!--<hr style="margin: 1.25em 0 .9em;"></hr>
-            <p>Never enter your password, credit card and other personal information on the website.</p> -->
           </div>
           <div id="errorStatePanel">
             <a></a>
@@ -631,7 +629,12 @@ functionality specific to firefox. -->
         
 
       </div>
-            <div id="certificateErrorDebugInformation">
+
+      <div id="certificateErrorDebugInformation">
+
+      <button id="errorTryAgain" autocomplete="off">Copy text to clipboard</button>        
+
+        <div id="certificateErrorText">
 depth=3 C = SE, O = AddTrust AB, OU = AddTrust External TTP Network, CN = AddTrust External CA Root
 verify return:1
 depth=2 C = GB, ST = Greater Manchester, L = Salford, O = COMODO CA Limited, CN = COMODO RSA Certification Authority
@@ -718,7 +721,11 @@ SSL-Session:
     Timeout   : 300 (sec)
     Verify return code: 10 (certificate has expired)
 ---
-            </div>
+        </div>
+        
+      <button id="errorTryAgain" autocomplete="off">Copy text to clipboard</button>
+
+      </div>
 
     <!--
     - Note: It is important to run the script this way, instead of using

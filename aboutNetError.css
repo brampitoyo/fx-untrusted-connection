@@ -34,7 +34,7 @@ ul {
 }
 
 #errorTitle {
-  background: url("aboutNetError_info.svg") left 0 no-repeat;
+  background: url("aboutNetError_info_45.svg") left 0 no-repeat;
   background-size: 3em;
   -moz-margin-start: -5em;
   -moz-padding-start: 5em;
@@ -113,7 +113,8 @@ div#certificateErrorReportingPanel {
   padding: 0 12px 12px 12px;
   box-shadow: 0 0 4px #ddd;
   font-size: 0.9em;
-  width: 100%;
+  /* Remove width to make it as wide as everything else on the page */
+  /* width: 100%; */
   margin-top: 10px;
   padding-bottom: 10px;
 }
@@ -136,35 +137,53 @@ span#hostname {
 }
 
 #reportCertificateError {
-  box-shadow:inset 0px 1px 0px 0px #cf866c;
-  background:linear-gradient(to bottom, #d92d21 5%, #bc3315 100%);
-  border-radius:3px;
-  border:1px solid #942911;
-  display:inline-block;
-  color:#ffffff;
+  background-color: #d83812;
+  border-radius: 3px;
+  border: none;
+  display: inline-block;
+  color: var(--in-content-selected-text);
   cursor: pointer;
   height: auto;
   margin: 1.25em 12.5% .5em 12.5%;
-  padding:6px 24px;
-  text-decoration:none;
-  text-shadow:0px 1px 0px #854629;
+  padding: 6px 24px;
+  text-decoration: none;
   width: 75%;
 }
 #reportCertificateError:hover {
-  background:linear-gradient(to bottom, #bc3315 5%, #d92d21 100%);
-  background-color:#bc3315;
+  background-color: #c73510;
 }
-#reportCertificateError:active {
-  position:relative;
-  top:1px;
+#reportCertificateError:hover:active {
+  background-color: #9e2a0d;
 }
 
 #certificateErrorDebugInformation {
   display: none;
-  font-family: monospace;
+  background-color: var(--in-content-box-background) !important;
+  border-top: 1px solid var(--in-content-border-color); 
   position: absolute;
-  left: 12.5%;
+  left: 0%;
   top: 100%;
-  white-space: pre;
-  width: 75%;
+  width: 65%;
+  padding: 1% 17.5% 2%;
+}
+#certificateErrorText {
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+
+.returnButton {
+  background-color: var(--in-content-primary-button-background);
+  border: none;
+  color: var(--in-content-selected-text);
+  min-width: 250px !important;
+}
+.returnButton:hover {
+  background-color: var(--in-content-primary-button-background-hover) !important;
+}
+.returnButton:hover:active {
+  background-color: var(--in-content-primary-button-background-active) !important;
+}
+
+.advancedButton {
+  float: right !important;
 }
