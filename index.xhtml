@@ -562,7 +562,7 @@ functionality specific to firefox. -->
 
       <!-- Error Title -->
       <div id="errorTitle">
-        <h1 id="errorTitleText">Your connection is not private</h1>
+        <h1 id="errorTitleText">Your connection is not secure</h1>
       </div>
 
       <!-- LONG CONTENT (the section most likely to require scrolling) -->
@@ -612,13 +612,10 @@ functionality specific to firefox. -->
             <hr style="margin: 1.25em 0 .9em;"></hr> -->
             <p><span id="hostname">expired.badssl.com</span> uses a security certificate that’s out of date.</p>
             <p>The certificate expired on Monday, July 13, 2015, but your computer reports that today is Wednesday, July 15, 2015.</p>
-            <p style="color: #AAAAAA; white-space: nowrap;">Error: <span onclick="toggleDisplay(document.getElementById('certificateErrorDebugInformation'));" style="text-transform: uppercase;">sec_error_expired_certificate</span></p>
-          </div>
-          <div id="errorStatePanel">
-            <a></a>
-            <span id="reportingState" style="float:right;">
-              <a href="untrusted-connection-warning-ui.png"><button id="reportCertificateError">I wish to proceed to <span id="hostname">expired.badssl.com</span> even though my personal information may be at risk.</button></a>
-            </span>
+            <p>Error: <a><span onclick="toggleDisplay(document.getElementById('certificateErrorDebugInformation'));" style="text-transform: uppercase; white-space: nowrap; ">sec_error_expired_certificate</span></a><br/>
+            (Click on the link, then scroll down the page)</p>
+            <br/>
+            <p><a href="untrusted-connection-warning-ui.png" class="fade">Proceed to <span id="hostname">expired.badssl.com</span> even though my personal information may be at risk.</a></p>
           </div>
         </div>
       
@@ -632,7 +629,7 @@ functionality specific to firefox. -->
 
       <div id="certificateErrorDebugInformation">
 
-      <button id="errorTryAgain" autocomplete="off">Copy text to clipboard</button>        
+      <button id="errorTryAgain">Copy text to clipboard</button>        
 
         <div id="certificateErrorText">
 depth=3 C = SE, O = AddTrust AB, OU = AddTrust External TTP Network, CN = AddTrust External CA Root
@@ -723,7 +720,7 @@ SSL-Session:
 ---
         </div>
         
-      <button id="errorTryAgain" autocomplete="off">Copy text to clipboard</button>
+      <button id="errorTryAgain">Copy text to clipboard</button>        
 
       </div>
 
