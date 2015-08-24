@@ -31,7 +31,7 @@
     <mask id="mask-base-cutout">
       <rect width="24" height="24" fill="#000" />
       <use xlink:href="#shape-lock-base" fill="#fff" />
-      <line x1="1.25" y1="22" x2="20.5" y2="3.75" stroke="#000" stroke-width="2.75" />
+      <line x1="1.25" y1="20.75" x2="20.5" y2="2.5" stroke="#000" stroke-width="4.25" />
     </mask>
   </defs>
 

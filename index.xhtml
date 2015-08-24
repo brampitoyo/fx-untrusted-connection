@@ -612,10 +612,9 @@ functionality specific to firefox. -->
             <hr style="margin: 1.25em 0 .9em;"></hr> -->
             <p><span id="hostname">expired.badssl.com</span> uses a security certificate that’s out of date.</p>
             <p>The certificate expired on Monday, July 13, 2015, but your computer reports that today is Wednesday, July 15, 2015.</p>
-            <p>Error: <a><span onclick="toggleDisplay(document.getElementById('certificateErrorDebugInformation'));" style="text-transform: uppercase; white-space: nowrap; ">sec_error_expired_certificate</span></a><br/>
-            (Click on the link, then scroll down the page)</p>
+            <p>Error code: <a href="#technicalInformation"><span onclick="toggleDisplay(document.getElementById('certificateErrorDebugInformation'));" style="text-transform: uppercase; white-space: nowrap; ">sec_error_expired_certificate</span></a></p>
             <br/>
-            <p><a href="untrusted-connection-warning-ui.png" class="fade">Proceed to <span id="hostname">expired.badssl.com</span> even though my personal information may be at risk.</a></p>
+            <p><a href="untrusted-connection-warning-ui.png" class="fade">Not secure: go to <span id="hostname">expired.badssl.com</span></a></p>
           </div>
         </div>
       
@@ -628,6 +627,8 @@ functionality specific to firefox. -->
       </div>
 
       <div id="certificateErrorDebugInformation">
+
+      <a name="technicalInformation"></a>
 
       <button id="errorTryAgain">Copy text to clipboard</button>        
 
