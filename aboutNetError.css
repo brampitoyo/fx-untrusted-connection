@@ -41,7 +41,7 @@ ul {
 }
 
 #errorTitleNotConnected {
-  background: url("aboutNotConnected_info_45") left 0 no-repeat;
+  background: url("aboutNotConnected_info_45.svg") left 0 no-repeat;
   background-size: 3em;
   -moz-margin-start: -5em;
   -moz-padding-start: 5em;
