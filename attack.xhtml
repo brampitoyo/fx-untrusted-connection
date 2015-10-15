@@ -595,13 +595,6 @@ functionality specific to firefox. -->
               parent.insertBefore(button, nextSibling);
           }
         </script>
-        
-        <div id="errorShortDesc">
-          <p>
-            <input type="checkbox" id="automaticallyReportInFuture" checked="true" />
-            <label for="automaticallyReportInFuture" id="automaticallyReportInFuture">Report errors like this to Mozilla</label>
-          </p>  
-        </div>
   
         <!-- UI for option to report certificate errors to Mozilla. Removed on
              init for other error types .-->
@@ -610,8 +603,7 @@ functionality specific to firefox. -->
           <div id="certificateErrorReportingDescription">
             <!--<p><b>Technical Details</b></p>
             <hr style="margin: 1.25em 0 .9em;"></hr> -->
-            <p><strong>Who reported this site?</strong><br/>
-            Google Safe Browsing and StopBadware. <a href="https://www.google.com/safebrowsing/diagnostic?site=itisatrap.org">View full diagnostic report</a>.</p>
+            <p>If you visit this site, harmful programs can be installed without you knowing about it.</p>
             <br/>
             <p><a>(Not secure) Go to <span id="hostname">itisatrap.org</span></a></p>
           </div>
