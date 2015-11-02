@@ -201,18 +201,28 @@ span#hostname {
   opacity: 0.5;
 }
 
-#stripe-grey {
+#networkError {
 	background-image: linear-gradient(-45deg, #dfe8ee,     #dfe8ee 33%,
                                             #ecf0f3 33%, #ecf0f3 66%,
                                             #dfe8ee 66%, #dfe8ee);
-	background-size: 64px var(--moz-background-height);
+	background-size: 64px 32px;
 	background-repeat: repeat-x;
 }
 
-#stripe-yellow {
-
+#certError {
+	background-image: linear-gradient(-45deg, #f0d000,     #f0d000 33%,
+                                            #fedc00 33%, #fedc00 66%,
+                                            #f0d000 66%, #f0d000);
+	background-size: 64px 32px;
+	background-repeat: repeat-x;
 }
 
-#stripe-red {
-
-}
+#blockedSite {
+	background-image: linear-gradient(-45deg, #9b2e2e,     #9b2e2e 33%,
+		                                            #a83232 33%, #a83232 66%,
+		                                            #9b2e2e 66%, #9b2e2e);
+	background-size: 64px 32px;
+	background-repeat: repeat-x;
+	background-color: #b14646;
+	color: white;
+}	
