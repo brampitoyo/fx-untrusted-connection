@@ -81,14 +81,6 @@ ul {
 		height: 100%;
 		font-size: 14px;
 	}
-
-  #errorTitle,
-  #errorTitleNotConnected {
-    padding-top: 0;
-    background-image: none;
-    -moz-padding-start: 0;
-    -moz-margin-start: 0;
-  }
   
   button {
   	/* Force buttons to display: block here to try and enfoce collapsing margins */
@@ -119,6 +111,17 @@ ul {
       padding-top: 64px;
       min-height: calc(100% - 64px);
     }
+  }
+}
+
+/* Hide SVG images when it gets too narrow */
+@media (max-width: 719px) {
+  #errorTitle,
+  #errorTitleNotConnected {
+    padding-top: 0;
+    background-image: none;
+    -moz-padding-start: 0;
+    -moz-margin-start: 0;
   }
 }
 
