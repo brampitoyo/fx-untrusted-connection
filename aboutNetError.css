@@ -243,4 +243,13 @@ span#hostname {
 	background-repeat: repeat-x;
 	background-color: #b14646;
 	color: white;
-}	
+}
+
+#blockedsite h1 {
+  border-bottom-color: #9b2e2e;
+}
+
+#blockedsite button {
+  background-color: #9b2e2e;
+  color: white;
+}
