@@ -199,3 +199,15 @@ span#hostname {
   color: var(--in-content-text-color) !important;
   opacity: 0.5;
 }
+
+#stripe-yellow {
+	background-image: linear-gradient(-45deg, #dfe8ee,     #dfe8ee 33%,
+                                            #ecf0f3 33%, #ecf0f3 66%,
+                                            #dfe8ee 66%, #dfe8ee);
+	background-size: 64px var(--moz-background-height);
+	background-repeat: repeat-x;
+}
+
+#stripe-red {
+
+}
