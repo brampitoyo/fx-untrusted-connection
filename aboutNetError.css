@@ -88,7 +88,6 @@ ul {
 		width: 100%;
 		border: none;
 		padding: 1rem;
-		font-family: sans-serif;
 		background-color: #e0e2e5;
 		font-weight: 300;
 		border-radius: 2px;
@@ -116,13 +115,20 @@ ul {
 
 /* Hide SVG images when it gets too narrow */
 @media (max-width: 719px) {
-  #errorTitle,
+	#errorTitle,
   #errorTitleNotConnected {
     padding-top: 0;
     background-image: none;
     -moz-padding-start: 0;
     -moz-margin-start: 0;
   }
+}
+
+/* Make button a bit larger for tablet-sized layouts */
+@media (max-width: 1280px) {
+	button {
+		padding: .5rem;
+	}
 }
 
 /* Pressing the retry button will cause the cursor to flicker from a pointer to
