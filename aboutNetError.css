@@ -31,7 +31,7 @@ ul {
 
 #errorPageContainer {
   position: relative;
-  min-width: 320px;
+  min-width: 270px;
   max-width: 512px;
 }
 
@@ -73,7 +73,7 @@ ul {
 
 /* Design for narrow layouts */
 
-@media (max-width: 675px) {
+@media (max-width: 549px) {
 
 	body {
 		margin: 0;
