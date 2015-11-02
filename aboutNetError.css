@@ -15,6 +15,41 @@ body {
   --moz-vertical-spacing: 10px;
 }
 
+#networkError {
+	background-image: linear-gradient(-45deg, #dfe8ee,     #dfe8ee 33%,
+                                            #ecf0f3 33%, #ecf0f3 66%,
+                                            #dfe8ee 66%, #dfe8ee);
+	background-size: 64px 32px;
+	background-repeat: repeat-x;
+}
+
+#certError {
+	background-image: linear-gradient(-45deg, #f0d000,     #f0d000 33%,
+                                            #fedc00 33%, #fedc00 66%,
+                                            #f0d000 66%, #f0d000);
+	background-size: 64px 32px;
+	background-repeat: repeat-x;
+}
+
+#blockedSite {
+	background-image: linear-gradient(-45deg, #9b2e2e,     #9b2e2e 33%,
+		                                            #a83232 33%, #a83232 66%,
+		                                            #9b2e2e 66%, #9b2e2e);
+	background-size: 64px 32px;
+	background-repeat: repeat-x;
+	background-color: #b14646;
+	color: white;
+}
+
+#blockedsite h1 {
+  border-bottom-color: #9b2e2e;
+}
+
+#blockedsite button {
+  background-color: #9b2e2e;
+  color: white;
+}
+
 ul, ol {
   margin: 0;
   padding: 0;
@@ -73,7 +108,7 @@ ul {
 
 /* Design for narrow layouts */
 
-@media (max-height: 320px) {
+@media (max-height: 359px) {
   body {
   	background-size: 64px 16px;
   }
@@ -267,39 +302,4 @@ span#hostname {
 .fade {
   color: var(--in-content-text-color) !important;
   opacity: 0.5;
-}
-
-#networkError {
-	background-image: linear-gradient(-45deg, #dfe8ee,     #dfe8ee 33%,
-                                            #ecf0f3 33%, #ecf0f3 66%,
-                                            #dfe8ee 66%, #dfe8ee);
-	background-size: 64px 32px;
-	background-repeat: repeat-x;
-}
-
-#certError {
-	background-image: linear-gradient(-45deg, #f0d000,     #f0d000 33%,
-                                            #fedc00 33%, #fedc00 66%,
-                                            #f0d000 66%, #f0d000);
-	background-size: 64px 32px;
-	background-repeat: repeat-x;
-}
-
-#blockedSite {
-	background-image: linear-gradient(-45deg, #9b2e2e,     #9b2e2e 33%,
-		                                            #a83232 33%, #a83232 66%,
-		                                            #9b2e2e 66%, #9b2e2e);
-	background-size: 64px 32px;
-	background-repeat: repeat-x;
-	background-color: #b14646;
-	color: white;
-}
-
-#blockedsite h1 {
-  border-bottom-color: #9b2e2e;
-}
-
-#blockedsite button {
-  background-color: #9b2e2e;
-  color: white;
 }
