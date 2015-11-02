@@ -12,6 +12,7 @@ body {
   align-items: center;
   justify-content: center;
   --moz-background-height: 32px;
+  --moz-vertical-spacing: 10px;
 }
 
 ul, ol {
@@ -70,6 +71,8 @@ ul {
   display: none;
 }
 
+/* Design for narrow layouts */
+
 @media (max-width: 675px) {
   #errorTitle,
   #errorTitleNotConnected {
@@ -78,6 +81,20 @@ ul {
     -moz-padding-start: 0;
     -moz-margin-start: 0;
   }
+  
+  button {
+  	/* Force buttons to display: block here to try and enfoce collapsing margins */
+		display: block;
+		width: 100%;
+		border: none;
+		padding: 1rem;
+		font-family: sans-serif;
+		background-color: #e0e2e5;
+		font-weight: 300;
+		border-radius: 2px;
+		background-image: none;
+		margin: var(--moz-vertical-spacing) 0 0;
+	}
 }
 
 /* On large screen devices (hopefully a 7+ inch tablet, we already center content (see #errorPageContainer above).
