@@ -74,6 +74,14 @@ ul {
 /* Design for narrow layouts */
 
 @media (max-width: 675px) {
+
+	body {
+		margin: 0;
+		padding: 0 20px;
+		height: 100%;
+		font-size: 13px;
+	}
+
   #errorTitle,
   #errorTitleNotConnected {
     padding-top: 0;
