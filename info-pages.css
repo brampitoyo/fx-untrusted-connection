@@ -180,7 +180,7 @@ div#certificateErrorReportingPanel {
 /* Typography */
 
 #errorTitle {
-  background-image: url("aboutNetError_info_45.svg"),
+  background-image: url("aboutNetError_info_45.svg");
   background-position: left 0;
   background-repeat: no-repeat;
   background-size: 3em;
