@@ -299,7 +299,10 @@ button:disabled,
     padding: 0 48px;
   }
 
-  .title {
+  .title,
+  /* Error-page specific */ #errorTitle,
+  /* Error-page specific */ #errorTitleNotConnected,
+  /* Error-page specific */ #errorTitleText[sslv3=true], {
     background-image: none !important;
     -moz-padding-start: 0;
     -moz-margin-start: 0;
