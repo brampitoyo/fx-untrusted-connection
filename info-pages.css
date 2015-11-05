@@ -236,7 +236,7 @@ span.downArrow {
   opacity: 0.5;
 }
 
-#blockedsite h1 {
+#blockedsite #errorTitleText {
   color: white;
   border-bottom-color: #9b2e2e;
 }
