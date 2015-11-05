@@ -245,6 +245,11 @@ span.downArrow {
   white-space: pre-wrap;
 }
 
+#blockedSite #learnMoreLink {
+  color: white;
+  text-decoration: underline;
+}
+
 .fade {
   color: var(--in-content-text-color) !important;
   opacity: 0.5;
