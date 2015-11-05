@@ -181,7 +181,7 @@ div#certificateErrorReportingPanel {
 
 #errorTitle {
   background-image: url("aboutNetError_info_45.svg"),
-  background-position: left 0,
+  background-position: left 0;
   background-repeat: no-repeat;
   background-size: 3em;
   -moz-margin-start: -5em;
@@ -190,7 +190,7 @@ div#certificateErrorReportingPanel {
 
 #errorTitleNotConnected {
   background-image: url("aboutNotConnected_info_45.svg");
-  background-position: left 0,
+  background-position: left 0;
   background-repeat: no-repeat;
   background-size: 3em;
   -moz-margin-start: -5em;
