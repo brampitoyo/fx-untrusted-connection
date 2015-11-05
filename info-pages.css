@@ -38,7 +38,8 @@ body {
   font-size: 2.5em;
 }
 
-.title:-moz-dir(rtl) {
+.title:-moz-dir(rtl),
+/* Error-page specific */ #errorTitleText:-moz-dir(rtl) {
   background-position: right 0;
 }
 
@@ -205,10 +206,6 @@ div#certificateErrorReportingPanel {
   background-size: 3em;
   -moz-margin-start: -5em;
   -moz-padding-start: 5em;
-}
-
-#errorTitleText:-moz-dir(rtl) {
-  background-position: right 0;
 }
 
 #errorTitleText[sslv3=true] {
