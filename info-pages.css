@@ -384,17 +384,6 @@ button:disabled,
   }
 }
 
-/* Hide SVG images when it gets too narrow */
-@media (max-width: 719px) {
-	#errorTitle,
-  #errorTitleNotConnected {
-    padding-top: 0;
-    background-image: none;
-    -moz-padding-start: 0;
-    -moz-margin-start: 0;
-  }
-}
-
 /* Make button a bit larger for tablet-sized layouts */
 @media (min-width: 550px) and (max-width: 1280px) {
 	button {
