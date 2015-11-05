@@ -180,14 +180,18 @@ div#certificateErrorReportingPanel {
 /* Typography */
 
 #errorTitle {
-  background: url("aboutNetError_info_45.svg") left 0 no-repeat;
+  background-image: url("aboutNetError_info_45.svg"),
+  background-position: left 0,
+  background-repeat: no-repeat;
   background-size: 3em;
   -moz-margin-start: -5em;
   -moz-padding-start: 5em;
 }
 
 #errorTitleNotConnected {
-  background: url("aboutNotConnected_info_45.svg") left 0 no-repeat;
+  background-image: url("aboutNotConnected_info_45.svg");
+  background-position: left 0,
+  background-repeat: no-repeat;
   background-size: 3em;
   -moz-margin-start: -5em;
   -moz-padding-start: 5em;
