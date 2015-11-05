@@ -81,11 +81,13 @@ ul {
 }
 
 /* Buttons */
-.button-container {
+.button-container,
+/* Error-page specific */ #errorTryAgain {
   margin-top: 1.2em;
 }
 
-.button-container > button {
+.button-container > button,
+/* Error-page specific */ #errorTryAgain {
   min-width: 150px;
 }
 
@@ -253,10 +255,7 @@ span.downArrow {
  * not-allowed. Override the disabled cursor behaviour since we will never show
  * the button disabled as the initial state. */
 
-button:disabled {
-  cursor: pointer;
-}
-
+button:disabled,
 #automaticallyReportInFuture {
   cursor: pointer;
 }
@@ -264,11 +263,6 @@ button:disabled {
 #blockedsite button {
   background-color: #9b2e2e;
   color: white;
-}
-
-#errorTryAgain {
-  margin-top: 1.2em;
-  min-width: 150px
 }
 
 #reportCertificateError {
