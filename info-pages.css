@@ -288,16 +288,19 @@ button:disabled,
   background-color: #9e2a0d;
 }
 
-.returnButton {
+.returnButton,
+#blockedSite .returnButton {
   background-color: var(--in-content-primary-button-background);
   border: none;
   color: var(--in-content-selected-text);
   min-width: 250px !important;
 }
-.returnButton:hover {
+.returnButton:hover,
+#blockedSite .returnButton:hover {
   background-color: var(--in-content-primary-button-background-hover) !important;
 }
-.returnButton:hover:active {
+.returnButton:hover:active
+#blockedSite .returnButton:hover:active {
   background-color: var(--in-content-primary-button-background-active) !important;
 }
 
@@ -331,4 +334,77 @@ button:disabled,
   /* Error-page specific */ #errorTitleText {
     padding-top: 0;
   }
+}
+
+@media (max-width: 549px) {
+
+	body {
+		margin: 0;
+		padding: 0 20px;
+		height: 100%;
+		font-size: 14px;
+	}
+  
+  h1 {
+  	font-size: 2.25em;	
+  }
+  
+  button {
+  	/* Force buttons to display: block here to try and enfoce collapsing margins */
+		display: block;
+		width: 100%;
+		border: none;
+		padding: 1rem;
+		background-color: #e0e2e5;
+		font-size: 16px;
+		font-weight: 300;
+		background-image: none;
+		margin: var(--moz-vertical-spacing) 0 0;
+	}
+	
+	#errorTitleText {
+		padding-bottom: 0;
+		border-bottom: none;
+	}
+}
+
+/* On large screen devices (hopefully a 7+ inch tablet, we already center content (see #errorPageContainer above).
+   Apply tablet specific styles here */
+@media (min-width: 550px) {
+  button {
+    min-width: 180px;
+  }
+
+  /* If the tablet is tall as well, add some padding to make content feel a bit more centered */
+  @media (min-height: 550px) {
+    #errorPageContainer {
+      padding-top: 64px;
+      min-height: calc(100% - 64px);
+    }
+  }
+}
+
+/* Hide SVG images when it gets too narrow */
+@media (max-width: 719px) {
+	#errorTitle,
+  #errorTitleNotConnected {
+    padding-top: 0;
+    background-image: none;
+    -moz-padding-start: 0;
+    -moz-margin-start: 0;
+  }
+}
+
+/* Make button a bit larger for tablet-sized layouts */
+@media (min-width: 550px) and (max-width: 1280px) {
+	button {
+		padding: .66rem;
+		width: auto;
+		border: none;
+		padding: .85rem;
+		background-color: #e0e2e5;
+		font-size: 15px;
+		font-weight: 300;
+		background-image: none;
+	}
 }
