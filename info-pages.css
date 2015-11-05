@@ -14,7 +14,8 @@ body {
   justify-content: center;
 }
 
-.container {
+.container,
+/* Error-page specific */ #errorPageContainer {
   min-width: 13em;
   max-width: 52em;
 }
@@ -103,4 +104,215 @@ ul {
 
 tree {
   width: 100%;
+}
+
+/* Error-page specific */
+
+/* Body and container */
+
+#errorContainer {
+  display: none;
+}
+
+/* Backgrounds */
+
+#networkError {
+	background-image: linear-gradient(-45deg, #eeeeee,     #eeeeee 33%,
+                                            #fbfbfb 33%, #fbfbfb 66%,
+                                            #eeeeee 66%, #eeeeee);
+	background-size: 64px 32px;
+	background-repeat: repeat-x;
+}
+
+#certError {
+	background-image: linear-gradient(-45deg, #f0d000,     #f0d000 33%,
+                                            #fedc00 33%, #fedc00 66%,
+                                            #f0d000 66%, #f0d000);
+	background-size: 64px 32px;
+	background-repeat: repeat-x;
+}
+
+#blockedSite {
+	background-image: linear-gradient(-45deg, #9b2e2e,     #9b2e2e 33%,
+		                                        #a83232 33%, #a83232 66%,
+		                                        #9b2e2e 66%, #9b2e2e);
+	background-size: 64px 32px;
+	background-repeat: repeat-x;
+	background-color: #b14646;
+	color: white;
+}
+
+/* Panels and sections */
+
+div#certificateErrorReporting {
+  display: block;
+  float: left;
+  clear: right;
+  /* Align with the "Try Again" button */
+  margin-top: 24px;
+  -moz-margin-end: 24px;
+}
+
+div#certificateErrorReportingPanel {
+  /* Hidden until the link is clicked */
+  display: block;
+  background-color: white;
+  border: 1px lightgray solid;
+  /* Don't use top padding because the default p style has top padding, and it
+   * makes the overall div look uneven */
+  padding: 0 12px 12px 12px;
+  box-shadow: 0 0 4px #ddd;
+  font-size: 0.9em;
+  /* Remove width to make it as wide as everything else on the page */
+  /* width: 100%; */
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+#errorStatePanel {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  align-items: flex-start;
+}
+
+#certificateErrorDebugInformation {
+  display: none;
+  background-color: var(--in-content-box-background-hover) !important;
+  border-top: 1px solid var(--in-content-border-color); 
+  position: absolute;
+  left: 0%;
+  top: 100%;
+  width: 65%;
+  padding: 1% 17.5% 2%;
+}
+
+
+/* Typography */
+
+#errorTitle {
+  background: url("aboutNetError_info_45.svg") left 0 no-repeat;
+  background-size: 3em;
+  -moz-margin-start: -5em;
+  -moz-padding-start: 5em;
+}
+
+#errorTitleNotConnected {
+  background: url("aboutNotConnected_info_45.svg") left 0 no-repeat;
+  background-size: 3em;
+  -moz-margin-start: -5em;
+  -moz-padding-start: 5em;
+}
+
+#errorTitleText {
+  border-bottom: 1px solid #C1C1C1;
+  padding-bottom: 0.4em;
+}
+
+#errorTitleText:-moz-dir(rtl) {
+  background-position: right 0;
+}
+
+#errorTitleText[sslv3=true] {
+  background-image: url("aboutNetError_alert.svg");
+}
+
+span#hostname {
+  font-weight: bold;
+}
+
+div#certificateErrorReporting a {
+  text-decoration: none;
+}
+
+div#certificateErrorReporting a:hover {
+  text-decoration: underline;
+}
+
+span.downArrow {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0.6em;
+  -moz-margin-start: 0.5em;
+  transform: scaleY(0.7);
+}
+
+#certificateErrorText {
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+
+.fade {
+  color: var(--in-content-text-color) !important;
+  opacity: 0.5;
+}
+
+#blockedsite h1 {
+  color: white;
+  border-bottom-color: #9b2e2e;
+}
+
+/* Buttons */
+
+/* Pressing the retry button will cause the cursor to flicker from a pointer to
+ * not-allowed. Override the disabled cursor behaviour since we will never show
+ * the button disabled as the initial state. */
+
+button:disabled {
+  cursor: pointer;
+}
+
+#automaticallyReportInFuture {
+  cursor: pointer;
+}
+
+#blockedsite button {
+  background-color: #9b2e2e;
+  color: white;
+}
+
+#errorTryAgain {
+  margin-top: 1.2em;
+  min-width: 150px
+}
+
+#reportCertificateError {
+  background-color: #d83812;
+  border-radius: 3px;
+  border: none;
+  display: inline-block;
+  color: var(--in-content-selected-text);
+  cursor: pointer;
+  height: auto;
+  margin: 1.25em 12.5% .5em 12.5%;
+  padding: 6px 24px;
+  text-decoration: none;
+  width: 75%;
+}
+
+#reportCertificateError:hover {
+  background-color: #c73510;
+}
+
+#reportCertificateError:hover:active {
+  background-color: #9e2a0d;
+}
+
+.returnButton {
+  background-color: var(--in-content-primary-button-background);
+  border: none;
+  color: var(--in-content-selected-text);
+  min-width: 250px !important;
+}
+.returnButton:hover {
+  background-color: var(--in-content-primary-button-background-hover) !important;
+}
+.returnButton:hover:active {
+  background-color: var(--in-content-primary-button-background-active) !important;
+}
+
+.advancedButton {
+  float: right !important;
 }
