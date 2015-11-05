@@ -266,12 +266,6 @@ button:disabled,
   cursor: pointer;
 }
 
-#blockedsite button {
-  background-color: #9b2e2e;
-  color: white;
-  border: none;
-}
-
 #reportCertificateError {
   background-color: #d83812;
   border-radius: 3px;
@@ -305,6 +299,12 @@ button:disabled,
 }
 .returnButton:hover:active {
   background-color: var(--in-content-primary-button-background-active) !important;
+}
+
+#blockedSite button {
+  background-color: #9b2e2e;
+  color: white;
+  border: none;
 }
 
 .advancedButton {
