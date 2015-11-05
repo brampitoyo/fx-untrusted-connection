@@ -211,6 +211,10 @@ div#certificateErrorReportingPanel {
   border-bottom-color: #9b2e2e;
 }
 
+#blockedSite #certificateErrorReportingPanel {
+  color: var(--in-content-page-color);
+}
+
 span#hostname {
   font-weight: bold;
 }
