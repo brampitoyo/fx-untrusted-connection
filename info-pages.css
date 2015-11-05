@@ -305,7 +305,8 @@ button:disabled,
     -moz-margin-start: 0;
   }
 
-  .title-text {
+  .title-text,
+  /* Error-page specific */ #errorTitleText {
     padding-top: 0;
   }
 }
