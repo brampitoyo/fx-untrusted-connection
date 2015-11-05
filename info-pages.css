@@ -156,6 +156,11 @@ div#certificateErrorReportingPanel {
   padding-bottom: 10px;
 }
 
+#blockedSite #certificateErrorReportingPanel {
+  border-color: #9b2e2e;
+  box-shadow: 0 0 4px #9b2e2e;
+}
+
 #errorStatePanel {
   display: flex;
   flex-direction: row;
@@ -259,6 +264,7 @@ button:disabled,
 #blockedsite button {
   background-color: #9b2e2e;
   color: white;
+  border: none;
 }
 
 #reportCertificateError {
