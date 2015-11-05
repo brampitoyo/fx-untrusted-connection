@@ -296,8 +296,7 @@ button:disabled,
 
 @media (max-width: 675px) {
   body {
-    padding: 0 24px;
-    font-size: 14px;
+    padding: 0 48px;
   }
 
   .title {
