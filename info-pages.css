@@ -320,40 +320,6 @@ button:disabled,
 
 /* Media queries */
 
-/* Small screens */
-
-@media only screen and (max-width: 480px) {
-
-	body {
-		margin: 0;
-		padding: 0 20px;
-		height: 100%;
-		font-size: 14px;
-	}
-  
-  h1 {
-  	font-size: 2.25em;	
-  }
-  
-  button {
-  	/* Force buttons to display: block here to try and enfoce collapsing margins */
-		display: block;
-		width: 100%;
-		border: none;
-		padding: 1rem;
-		background-color: #e0e2e5;
-		font-size: 16px;
-		font-weight: 300;
-		background-image: none;
-		margin: var(--moz-vertical-spacing) 0 0;
-	}
-	
-	#errorTitleText {
-		padding-bottom: 0;
-		border-bottom: none;
-	}
-}
-
 /* Medium screens */
 
 @media only screen and (max-width: 768px) {
@@ -391,5 +357,38 @@ button:disabled,
     padding-top: 64px;
     min-height: calc(100% - 64px);
   }
+}
 
+/* Small screens */
+
+@media only screen and (max-width: 480px) {
+
+	body {
+		margin: 0;
+		padding: 0 20px;
+		height: 100%;
+		font-size: 14px;
+	}
+  
+  h1 {
+  	font-size: 2.25em;	
+  }
+  
+  button {
+  	/* Force buttons to display: block here to try and enfoce collapsing margins */
+		display: block;
+		width: 100%;
+		border: none;
+		padding: 1rem;
+		background-color: #e0e2e5;
+		font-size: 16px;
+		font-weight: 300;
+		background-image: none;
+		margin: var(--moz-vertical-spacing) 0 0;
+	}
+	
+	#errorTitleText {
+		padding-bottom: 0;
+		border-bottom: none;
+	}
 }
