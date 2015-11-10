@@ -1,6 +1,7 @@
-
 @import url("chrome://global/skin/in-content/common.css");
+
 /* Body and container */
+
 body {
   display: flex;
   flex-direction: column;
@@ -28,6 +29,7 @@ body {
 }
 
 /* Typography */
+
 .title {
   background-image: url("chrome://browser/skin/aboutNetError_info.svg");
   background-position: left 0;
@@ -64,6 +66,7 @@ ul {
 }
 
 /* Buttons */
+
 .button-container,
 /* Error-page specific */ #errorTryAgain {
   margin-top: 1.2em;
@@ -79,6 +82,7 @@ ul {
 }
 
 /* Trees */
+
 .tree-container {
   margin-top: 1.2em;
   flex-grow: 1;
@@ -314,29 +318,11 @@ button:disabled,
   float: right !important;
 }
 
-/* Responsive design */
+/* Media queries */
 
-@media (max-width: 675px) {
-  body {
-    padding: 0 48px;
-  }
+/* Small screens */
 
-  .title,
-  /* Error-page specific */ #errorTitle,
-  /* Error-page specific */ #errorTitleNotConnected,
-  /* Error-page specific */ #errorTitleText[sslv3=true] {
-    background-image: none !important;
-    -moz-padding-start: 0;
-    -moz-margin-start: 0;
-  }
-
-  .title-text,
-  /* Error-page specific */ #errorTitleText {
-    padding-top: 0;
-  }
-}
-
-@media (max-width: 568px) {
+@media only screen and (max-width: 480px) {
 
 	body {
 		margin: 0;
@@ -368,26 +354,16 @@ button:disabled,
 	}
 }
 
-/* On large screen devices (hopefully a 7+ inch tablet, we already center content (see #errorPageContainer above).
-   Apply tablet specific styles here */
-@media (min-width: 550px) {
-  button {
-    min-width: 180px;
+/* Medium screens */
+
+@media only screen and (max-width: 768px) {
+  body {
+    padding: 0 48px;
   }
 
-  /* If the tablet is tall as well, add some padding to make content feel a bit more centered */
-  @media (min-height: 550px) {
-    #errorPageContainer {
-      padding-top: 64px;
-      min-height: calc(100% - 64px);
-    }
-  }
-}
-
-/* Make button a bit larger for tablet-sized layouts */
-@media (min-width: 550px) and (max-width: 1280px) {
 	button {
 		padding: .66rem;
+		min-width: 180px;
 		width: auto;
 		border: none;
 		padding: .85rem;
@@ -396,4 +372,24 @@ button:disabled,
 		font-weight: 300;
 		background-image: none;
 	}
+
+  .title,
+  /* Error-page specific */ #errorTitle,
+  /* Error-page specific */ #errorTitleNotConnected,
+  /* Error-page specific */ #errorTitleText[sslv3=true] {
+    background-image: none !important;
+    -moz-padding-start: 0;
+    -moz-margin-start: 0;
+  }
+
+  .title-text,
+  /* Error-page specific */ #errorTitleText {
+    padding-top: 0;
+  }
+
+  #errorPageContainer {
+    padding-top: 64px;
+    min-height: calc(100% - 64px);
+  }
+
 }
