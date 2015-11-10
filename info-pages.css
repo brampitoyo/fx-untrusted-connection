@@ -353,10 +353,6 @@ button:disabled,
     padding-top: 0;
   }
 
-  #errorPageContainer {
-    padding-top: 64px;
-    min-height: calc(100% - 64px);
-  }
 }
 
 /* Small screens */
