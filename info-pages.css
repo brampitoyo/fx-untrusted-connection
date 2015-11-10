@@ -322,7 +322,7 @@ button:disabled,
 
 /* Medium screens */
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 979px) {
   body {
     padding: 0 48px;
   }
@@ -361,7 +361,7 @@ button:disabled,
 
 /* Small screens */
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 767px) {
 
 	body {
 		margin: 0;
