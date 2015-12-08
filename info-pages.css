@@ -349,6 +349,13 @@ button:disabled,
 		font-weight: 300;
 		background-image: none;
 	}
+	
+	#blockedSite #errorPageContainer button {
+  background-color: #9b2e2e;
+  color: var(--in-content-category-text-selected);
+  border: none;
+  }
+
 
   .title,
   /* Error-page specific */ #errorTitle,
