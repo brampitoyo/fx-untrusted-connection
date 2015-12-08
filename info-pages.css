@@ -130,7 +130,6 @@ tree {
 	background-size: 64px 32px;
 	background-repeat: repeat-x;
 	background-color: #b14646;
-	color: white;
 }
 
 /* Panels and sections */
@@ -185,6 +184,10 @@ div#certificateErrorReportingPanel {
   padding: 1% 17.5% 2%;
 }
 
+#blockedSite #errorPageContainer {
+	color: var(--in-content-category-text-selected);
+}
+
 
 /* Typography */
 
@@ -216,7 +219,7 @@ div#certificateErrorReportingPanel {
 }
 
 #blockedSite #errorTitleText {
-  color: white;
+  color: var(--in-content-category-text-selected);
   border-bottom-color: #9b2e2e;
 }
 
@@ -292,25 +295,27 @@ button:disabled,
   background-color: #9e2a0d;
 }
 
-.returnButton,
-#blockedSite .returnButton {
+.returnButton {
   background-color: var(--in-content-primary-button-background);
   border: none;
   color: var(--in-content-selected-text);
   min-width: 250px !important;
 }
-.returnButton:hover,
-#blockedSite .returnButton:hover {
+.returnButton:hover {
   background-color: var(--in-content-primary-button-background-hover) !important;
 }
-.returnButton:hover:active
-#blockedSite .returnButton:hover:active {
+.returnButton:hover:active {
   background-color: var(--in-content-primary-button-background-active) !important;
 }
 
-#blockedSite button {
+#blockedSite #errorPageContainer button {
+  background-color: transparent;
+  color: var(--in-content-category-text-selected);
+  border: 1px solid color: #9b2e2e;
+}
+
+#blockedSite #errorPageContainer .returnButton {
   background-color: #9b2e2e;
-  color: white;
   border: none;
 }
 
