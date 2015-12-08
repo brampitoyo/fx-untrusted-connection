@@ -315,7 +315,7 @@ button:disabled,
 }
 
 #blockedSite #errorPageContainer button:hover {
-  border: 1px solid #a83232;
+  background-color: #a83232;
 }
 
 #blockedSite #errorPageContainer .returnButton {
