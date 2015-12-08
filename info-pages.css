@@ -372,7 +372,7 @@ button:disabled,
 
 	body {
 		margin: 0;
-		padding: 12.5vh 20px;
+		padding: 12.5vh 20px 0;
 		height: 100%;
 		font-size: 14px;
 	}
