@@ -295,16 +295,19 @@ button:disabled,
   background-color: #9e2a0d;
 }
 
-.returnButton {
+.returnButton,
+#blockedSite #errorPageContainer .returnButton {
   background-color: var(--in-content-primary-button-background);
   border: none;
   color: var(--in-content-selected-text);
   min-width: 250px !important;
 }
-.returnButton:hover {
+.returnButton:hover,
+#blockedSite #errorPageContainer .returnButton:hover {
   background-color: var(--in-content-primary-button-background-hover) !important;
 }
-.returnButton:hover:active {
+.returnButton:hover:active,
+#blockedSite #errorPageContainer .returnButton:hover:active {
   background-color: var(--in-content-primary-button-background-active) !important;
 }
 
