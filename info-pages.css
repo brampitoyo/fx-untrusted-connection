@@ -318,9 +318,8 @@ button:disabled,
   background-color: #a83232;
 }
 
-#blockedSite #errorPageContainer .returnButton {
+#blockedSite #errorPageContainer button:hover:active {
   background-color: #9b2e2e;
-  border: none;
 }
 
 .advancedButton {
