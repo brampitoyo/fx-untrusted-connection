@@ -398,4 +398,9 @@ button:disabled,
 		padding-bottom: 0;
 		border-bottom: none;
 	}
+
+	.advancedButton {
+  float: none;
+  }
+
 }
