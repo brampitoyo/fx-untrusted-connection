@@ -314,6 +314,10 @@ button:disabled,
   border: 1px solid #9b2e2e;
 }
 
+#blockedSite #errorPageContainer button:hover {
+  background-color: #a83232;
+}
+
 #blockedSite #errorPageContainer .returnButton {
   background-color: #9b2e2e;
   border: none;
