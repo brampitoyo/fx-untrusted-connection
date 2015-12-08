@@ -351,8 +351,7 @@ button:disabled,
 	}
 	
 	#blockedSite #errorPageContainer button {
-  background-color: #9b2e2e;
-  color: var(--in-content-category-text-selected);
+  background-color: #a83232;
   border: none;
   }
 
