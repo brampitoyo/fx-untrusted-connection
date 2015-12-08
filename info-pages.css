@@ -335,7 +335,7 @@ button:disabled,
 
 @media only screen and (max-width: 959px) {
   body {
-    padding: 0 48px;
+    padding: 12.5vh 48px 0;
   }
 
 	button {
@@ -398,13 +398,4 @@ button:disabled,
 		padding-bottom: 0;
 		border-bottom: none;
 	}
-}
-
-/* Protect against content that runs too long */
-
-@media only screen and (max-width: 520px) {
-
-  body {
-    padding-top: 12.5vh;
-  }
 }
