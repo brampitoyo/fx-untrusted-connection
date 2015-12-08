@@ -332,7 +332,7 @@ button:disabled,
 /* Input elements */
 
 #blockedSite input[type="checkbox"],
-#blockedSite|label:before {
+#blockedSite label:before {
   width: 48px;
 }
 
