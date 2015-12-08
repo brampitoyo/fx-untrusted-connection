@@ -309,8 +309,14 @@ button:disabled,
 }
 
 #blockedSite #errorPageContainer button {
-  background-color: #9b2e2e;
+  background-color: transparent;
   color: var(--in-content-category-text-selected);
+  border: 1px solid #9b2e2e;
+}
+
+#blockedSite #errorPageContainer .returnButton {
+  background-color: #9b2e2e;
+  border: none;
 }
 
 .advancedButton {
