@@ -329,13 +329,6 @@ button:disabled,
   float: right !important;
 }
 
-/* Input elements */
-
-#blockedSite input[type="checkbox"],
-#blockedSite label:before {
-  width: 48px;
-}
-
 /* Media queries */
 
 /* Medium screens */
