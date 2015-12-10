@@ -555,14 +555,14 @@ functionality specific to firefox. -->
 	<body id="blockedSite" dir="ltr">
 
     <!-- ERROR ITEM CONTAINER (removed during loading to avoid bug 39098) -->
-    
+
 
     <!-- PAGE CONTAINER (for styling purposes only) -->
     <div id="errorPageContainer">
 
       <!-- Error Title -->
       <div id="errorTitle">
-        <h1 id="errorTitleText">Your connection is not private</h1>
+        <h1 id="errorTitleText">This site is trying to infect your computer</h1>
       </div>
 
       <!-- LONG CONTENT (the section most likely to require scrolling) -->
@@ -570,12 +570,15 @@ functionality specific to firefox. -->
 
         <!-- Short Description -->
         <div id="errorShortDesc">
-          <p id="errorShortDescText">The owner of <span id="hostname">expired.badssl.com</span> has configured their website improperly.  To protect your information from being stolen, Firefox has not connected to this website.</p>
+          <p id="errorShortDescText"><strong>Attack Site:</strong><br><span id="hostname">itisatrap.org</span> itisatrap.org is trying to install dangerous programs that can steal your private information, send spam and damage your computer.</p>
+          <p id="errorShortDescText"><strong>Unwanted Software:</strong><br><span id="hostname">itisatrap.org</span> itisatrap.org is trying to install programs that can harm your browsing experience (for example, by changing your homepage or showing extra ads on sites you visit).</p>
+          <p id="errorShortDescText"><strong>Suspected Forgery:</strong><br><span id="hostname">itisatrap.org</span> itisatrap.org may look like a legitimate site, but it’s trying to get you to give away your personal or financial information.</p>
+
         </div>
         <div id="errorShortDesc">
           <p id="errorShortDescText"><a href="https://support.mozilla.org/kb/tls-error-reports" id="learnMoreLink" target="new">Learn more…</a></p>
         </div>
-        
+
         <!-- Retry Button -->
         <button id="errorTryAgain" class="returnButton" autocomplete="off" onclick="retryThis(this);" autofocus="true" style="margin-left: 0;">Go Back</button>
         <button id="errorTryAgain" class="advancedButton" autocomplete="off" onclick="toggleVisibility(document.getElementById('certificateErrorReportingPanel'));" autofocus="true">Advanced</button>
@@ -595,34 +598,25 @@ functionality specific to firefox. -->
               parent.insertBefore(button, nextSibling);
           }
         </script>
-        
-        <div id="errorShortDesc">
-          <p>
-            <input type="checkbox" id="automaticallyReportInFuture" checked="true" />
-            <label for="automaticallyReportInFuture" id="automaticallyReportInFuture">Report errors like this to Mozilla</label>
-          </p>  
-        </div>
-  
+
         <!-- UI for option to report certificate errors to Mozilla. Removed on
              init for other error types .-->
-        
+
         <div id="certificateErrorReportingPanel" style="display: block; visibility: hidden;">
           <div id="certificateErrorReportingDescription">
             <!--<p><b>Technical Details</b></p>
             <hr style="margin: 1.25em 0 .9em;"></hr> -->
-            <p><span id="hostname">expired.badssl.com</span> uses an out of date security certificate.</p>
-            <p>The certificate expired on Monday, July 13, 2015, but your computer reports that today is Wednesday, July 15, 2015.</p>
-            <p>Error code: <a href="#technicalInformation" class="fade"><span onclick="toggleDisplay(document.getElementById('certificateErrorDebugInformation'));" style="text-transform: uppercase; white-space: nowrap; ">sec_error_expired_certificate</span></a></p>
+            <p>If you enter any information on <span id="hostname">itisatrap.org</span>, your identity can be stolen and used to commit fraud.</p>
             <br/>
             <p><a href="untrusted-connection-warning-ui.png">(Not secure) Go to <span id="hostname">expired.badssl.com</span></a></p>
           </div>
         </div>
-      
+
     </div>
 
         <!-- Override section - For ssl errors only.  Removed on init for other
              error types.  -->
-        
+
 
       </div>
 
@@ -630,7 +624,7 @@ functionality specific to firefox. -->
 
       <a name="technicalInformation"></a>
 
-      <button id="errorTryAgain">Copy text to clipboard</button>        
+      <button id="errorTryAgain">Copy text to clipboard</button>
 
         <div id="certificateErrorText">
 depth=3 C = SE, O = AddTrust AB, OU = AddTrust External TTP Network, CN = AddTrust External CA Root
@@ -720,8 +714,8 @@ SSL-Session:
     Verify return code: 10 (certificate has expired)
 ---
         </div>
-        
-      <button id="errorTryAgain">Copy text to clipboard</button>        
+
+      <button id="errorTryAgain">Copy text to clipboard</button>
 
       </div>
 
