@@ -176,7 +176,7 @@ div#certificateErrorReportingPanel {
 #certificateErrorDebugInformation {
   display: none;
   background-color: var(--in-content-box-background-hover) !important;
-  border-top: 1px solid var(--in-content-border-color); 
+  border-top: 1px solid var(--in-content-border-color);
   position: absolute;
   left: 0%;
   top: 100%;
@@ -202,6 +202,15 @@ div#certificateErrorReportingPanel {
 
 #errorTitleNotConnected {
   background-image: url("aboutNotConnected_info_45.svg");
+  background-position: left 0;
+  background-repeat: no-repeat;
+  background-size: 3em;
+  -moz-margin-start: -5em;
+  -moz-padding-start: 5em;
+}
+
+#errorTitleBlockedSite {
+  background-image: url("aboutBlockedSite_info_45.svg");
   background-position: left 0;
   background-repeat: no-repeat;
   background-size: 3em;
@@ -349,12 +358,12 @@ button:disabled,
 		font-weight: 300;
 		background-image: none;
 	}
-	
+
 	#blockedSite #errorPageContainer button {
   background-color: #a83232;
   border: none;
   }
-  
+
   #blockedSite #errorPageContainer button:hover {
   background-color: #a13030;
   }
@@ -386,11 +395,11 @@ button:disabled,
 		height: 100%;
 		font-size: 14px;
 	}
-  
+
   h1 {
-  	font-size: 2.25em;	
+  	font-size: 2.25em;
   }
-  
+
   button {
   	/* Force buttons to display: block here to try and enfoce collapsing margins */
 		display: block;
@@ -403,7 +412,7 @@ button:disabled,
 		background-image: none;
 		margin: var(--moz-vertical-spacing) 0 0;
 	}
-	
+
 	#errorTitleText {
 		padding-bottom: 0;
 		border-bottom: none;

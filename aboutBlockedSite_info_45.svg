@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="45"
+     height="45"
+     viewBox="0 0 45 45">
+
+  <defs>
+
+    <circle id="stop-sign" cx="22.5" cy="22.5" r="20.5" />
+
+    <mask id="stop-symbol">
+      <rect width="45" height="45" fill="#fff" />
+      <line x1="10" y1="23" x2="35" y2="23" stroke="#000" stroke-width="6" />
+    </mask>
+
+  </defs>
+
+  <use xlink:href="#stop-sign" mask="url(#stop-symbol)" fill="#fff" />
+
+</svg>
