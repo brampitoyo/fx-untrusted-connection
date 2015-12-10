@@ -212,7 +212,7 @@ functionality specific to firefox. -->
     <link rel="stylesheet" href="./info-pages.css" type="text/css" media="all" />
     <!-- If the location of the favicon is changed here, the FAVICON_ERRORPAGE_URL symbol in
          toolkit/components/places/src/nsFaviconService.h should be updated. -->
-    <link rel="icon" type="image/png" id="favicon" href="chrome://global/skin/icons/warning-16.png" />
+    <link rel="icon" type="image/png" id="favicon" href="aboutNetError_info@2x.png" />
 
     <script type="application/javascript"><![CDATA[
       // Error url MUST be formatted like this:
@@ -555,7 +555,7 @@ functionality specific to firefox. -->
 	<body id="certError" dir="ltr">
 
     <!-- ERROR ITEM CONTAINER (removed during loading to avoid bug 39098) -->
-    
+
 
     <!-- PAGE CONTAINER (for styling purposes only) -->
     <div id="errorPageContainer">
@@ -575,7 +575,7 @@ functionality specific to firefox. -->
         <div id="errorShortDesc">
           <p id="errorShortDescText"><a href="https://support.mozilla.org/kb/tls-error-reports" id="learnMoreLink" target="new">Learn more…</a></p>
         </div>
-        
+
         <!-- Retry Button -->
         <button id="errorTryAgain" class="returnButton" autocomplete="off" onclick="retryThis(this);" autofocus="true" style="margin-left: 0;">Go Back</button>
         <button id="errorTryAgain" class="advancedButton" autocomplete="off" onclick="toggleVisibility(document.getElementById('certificateErrorReportingPanel'));" autofocus="true">Advanced</button>
@@ -595,17 +595,17 @@ functionality specific to firefox. -->
               parent.insertBefore(button, nextSibling);
           }
         </script>
-        
+
         <div id="errorShortDesc">
           <p>
             <input type="checkbox" id="automaticallyReportInFuture" checked="true" />
             <label for="automaticallyReportInFuture" id="automaticallyReportInFuture">Report errors like this to Mozilla</label>
-          </p>  
+          </p>
         </div>
-  
+
         <!-- UI for option to report certificate errors to Mozilla. Removed on
              init for other error types .-->
-        
+
         <div id="certificateErrorReportingPanel" style="display: block; visibility: hidden;">
           <div id="certificateErrorReportingDescription">
             <!--<p><b>Technical Details</b></p>
@@ -617,12 +617,12 @@ functionality specific to firefox. -->
             <p><a href="untrusted-connection-warning-ui.png">(Not secure) Go to <span id="hostname">expired.badssl.com</span></a></p>
           </div>
         </div>
-      
+
     </div>
 
         <!-- Override section - For ssl errors only.  Removed on init for other
              error types.  -->
-        
+
 
       </div>
 
@@ -630,7 +630,7 @@ functionality specific to firefox. -->
 
       <a name="technicalInformation"></a>
 
-      <button id="errorTryAgain">Copy text to clipboard</button>        
+      <button id="errorTryAgain">Copy text to clipboard</button>
 
         <div id="certificateErrorText">
 depth=3 C = SE, O = AddTrust AB, OU = AddTrust External TTP Network, CN = AddTrust External CA Root
@@ -720,8 +720,8 @@ SSL-Session:
     Verify return code: 10 (certificate has expired)
 ---
         </div>
-        
-      <button id="errorTryAgain">Copy text to clipboard</button>        
+
+      <button id="errorTryAgain">Copy text to clipboard</button>
 
       </div>
 
