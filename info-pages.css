@@ -371,6 +371,8 @@ button:disabled,
 
   .title,
   /* Error-page specific */ #errorTitle,
+  /* Error-page specific */ #errorTitleNetworkError,
+  /* Error-page specific */ #errorTitleBlockedSite,
   /* Error-page specific */ #errorTitleText[sslv3=true] {
     background-image: none !important;
     -moz-padding-start: 0;
