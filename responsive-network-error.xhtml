@@ -586,7 +586,6 @@ functionality specific to firefox. -->
         </div>
         <!-- Retry Button -->
         <button id="errorTryAgain" class="returnButton" autocomplete="off" onclick="retryThis(this);" autofocus="true" style="margin-left: 0;">Reload Page</button>
-        <button id="errorTryAgain" class="advancedButton" autocomplete="off" onclick="toggleVisibility(document.getElementById('certificateErrorReportingPanel'));" autofocus="true">Advanced</button>
 
         <script>
           // Only do autofocus if we're the toplevel frame; otherwise we
@@ -604,132 +603,12 @@ functionality specific to firefox. -->
           }
         </script>
 
-        <div id="errorShortDesc">
-          <p>
-            <input type="checkbox" id="automaticallyReportInFuture" checked="true" />
-            <label for="automaticallyReportInFuture" id="automaticallyReportInFuture">Report errors like this to Mozilla</label>
-          </p>
-        </div>
-
         <!-- UI for option to report certificate errors to Mozilla. Removed on
              init for other error types .-->
-
-        <div id="certificateErrorReportingPanel" style="display: block; visibility: hidden;">
-          <div id="certificateErrorReportingDescription">
-            <!--<p><b>Technical Details</b></p>
-            <hr style="margin: 1.25em 0 .9em;"></hr> -->
-            <p><span id="hostname">expired.badssl.com</span> uses an out of date security certificate.</p>
-            <p>The certificate expired on Monday, July 13, 2015, but your computer reports that today is Wednesday, July 15, 2015.</p>
-            <p>Error code: <a href="#technicalInformation" class="fade"><span onclick="toggleDisplay(document.getElementById('certificateErrorDebugInformation'));" style="text-transform: uppercase; white-space: nowrap; ">sec_error_expired_certificate</span></a></p>
-            <br/>
-            <p><a href="untrusted-connection-warning-ui.png">(Not secure) Go to <span id="hostname">expired.badssl.com</span></a></p>
-          </div>
-        </div>
-
     </div>
 
         <!-- Override section - For ssl errors only.  Removed on init for other
              error types.  -->
-
-
-      </div>
-
-      <div id="certificateErrorDebugInformation">
-
-      <a name="technicalInformation"></a>
-
-      <button id="errorTryAgain">Copy text to clipboard</button>
-
-        <div id="certificateErrorText">
-depth=3 C = SE, O = AddTrust AB, OU = AddTrust External TTP Network, CN = AddTrust External CA Root
-verify return:1
-depth=2 C = GB, ST = Greater Manchester, L = Salford, O = COMODO CA Limited, CN = COMODO RSA Certification Authority
-verify return:1
-depth=1 C = GB, ST = Greater Manchester, L = Salford, O = COMODO CA Limited, CN = COMODO RSA Domain Validation Secure Server CA
-verify return:1
-depth=0 OU = Domain Control Validated, OU = PositiveSSL Wildcard, CN = *.badssl.com
-verify error:num=10:certificate has expired
-notAfter=Apr 12 23:59:59 2015 GMT
-verify return:1
-depth=0 OU = Domain Control Validated, OU = PositiveSSL Wildcard, CN = *.badssl.com
-notAfter=Apr 12 23:59:59 2015 GMT
-verify return:1
----
-Certificate chain
- 0 s:/OU=Domain Control Validated/OU=PositiveSSL Wildcard/CN=*.badssl.com
-   i:/C=GB/ST=Greater Manchester/L=Salford/O=COMODO CA Limited/CN=COMODO RSA Domain Validation Secure Server CA
- 1 s:/C=GB/ST=Greater Manchester/L=Salford/O=COMODO CA Limited/CN=COMODO RSA Domain Validation Secure Server CA
-   i:/C=GB/ST=Greater Manchester/L=Salford/O=COMODO CA Limited/CN=COMODO RSA Certification Authority
- 2 s:/C=GB/ST=Greater Manchester/L=Salford/O=COMODO CA Limited/CN=COMODO RSA Certification Authority
-   i:/C=SE/O=AddTrust AB/OU=AddTrust External TTP Network/CN=AddTrust External CA Root
----
-Server certificate
------BEGIN CERTIFICATE-----
-MIIFSzCCBDOgAwIBAgIQSueVSfqavj8QDxekeOFpCTANBgkqhkiG9w0BAQsFADCB
-kDELMAkGA1UEBhMCR0IxGzAZBgNVBAgTEkdyZWF0ZXIgTWFuY2hlc3RlcjEQMA4G
-A1UEBxMHU2FsZm9yZDEaMBgGA1UEChMRQ09NT0RPIENBIExpbWl0ZWQxNjA0BgNV
-BAMTLUNPTU9ETyBSU0EgRG9tYWluIFZhbGlkYXRpb24gU2VjdXJlIFNlcnZlciBD
-QTAeFw0xNTA0MDkwMDAwMDBaFw0xNTA0MTIyMzU5NTlaMFkxITAfBgNVBAsTGERv
-bWFpbiBDb250cm9sIFZhbGlkYXRlZDEdMBsGA1UECxMUUG9zaXRpdmVTU0wgV2ls
-ZGNhcmQxFTATBgNVBAMUDCouYmFkc3NsLmNvbTCCASIwDQYJKoZIhvcNAQEBBQAD
-ggEPADCCAQoCggEBAMIE7PiM7gTCs9hQ1XBYzJMY61yoaEmwIrX5lZ6xKyx2PmzA
-S2BMTOqytMAPgLaw+XLJhgL5XEFdEyt/ccRLvOmULlA3pmccYYz2QULFRtMWhyef
-dOsKnRFSJiFzbIRMeVXk0WvoBj1IFVKtsyjbqv9u/2CVSndrOfEk0TG23U3AxPxT
-uW1CrbV8/q71FdIzSOciccfCFHpsKOo3St/qbLVytH5aohbcabFXRNsKEqveww9H
-dFxBIuGa+RuT5q0iBikusbpJHAwnnqP7i/dAcgCskgjZjFeEU4EFy+b+a1SYQCeF
-xxC7c3DvaRhBB0VVfPlkPz0sw6l865MaTIbRyoUCAwEAAaOCAdUwggHRMB8GA1Ud
-IwQYMBaAFJCvajqUWgvYkOoSVnPfQ7Q6KNrnMB0GA1UdDgQWBBSd7sF7gQs6R2lx
-GH0RN5O8pRs/+zAOBgNVHQ8BAf8EBAMCBaAwDAYDVR0TAQH/BAIwADAdBgNVHSUE
-FjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwTwYDVR0gBEgwRjA6BgsrBgEEAbIxAQIC
-BzArMCkGCCsGAQUFBwIBFh1odHRwczovL3NlY3VyZS5jb21vZG8uY29tL0NQUzAI
-BgZngQwBAgEwVAYDVR0fBE0wSzBJoEegRYZDaHR0cDovL2NybC5jb21vZG9jYS5j
-b20vQ09NT0RPUlNBRG9tYWluVmFsaWRhdGlvblNlY3VyZVNlcnZlckNBLmNybDCB
-hQYIKwYBBQUHAQEEeTB3ME8GCCsGAQUFBzAChkNodHRwOi8vY3J0LmNvbW9kb2Nh
-LmNvbS9DT01PRE9SU0FEb21haW5WYWxpZGF0aW9uU2VjdXJlU2VydmVyQ0EuY3J0
-MCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5jb21vZG9jYS5jb20wIwYDVR0RBBww
-GoIMKi5iYWRzc2wuY29tggpiYWRzc2wuY29tMA0GCSqGSIb3DQEBCwUAA4IBAQBq
-evHa/wMHcnjFZqFPRkMOXxQhjHUa6zbgH6QQFezaMyV8O7UKxwE4PSf9WNnM6i1p
-OXy+l+8L1gtY54x/v7NMHfO3kICmNnwUW+wHLQI+G1tjWxWrAPofOxkt3+IjEBEH
-fnJ/4r+3ABuYLyw/zoWaJ4wQIghBK4o+gk783SHGVnRwpDTysUCeK1iiWQ8dSO/r
-ET7BSp68ZVVtxqPv1dSWzfGuJ/ekVxQ8lEEFeouhN0fX9X3c+s5vMaKwjOrMEpsi
-8TRwz311SotoKQwe6Zaoz7ASH1wq7mcvf71z81oBIgxw+s1F73hczg36TuHvzmWf
-RwxPuzZEaFZcVlmtqoq8
------END CERTIFICATE-----
-subject=/OU=Domain Control Validated/OU=PositiveSSL Wildcard/CN=*.badssl.com
-issuer=/C=GB/ST=Greater Manchester/L=Salford/O=COMODO CA Limited/CN=COMODO RSA Domain Validation Secure Server CA
----
-No client certificate CA names sent
-Peer signing digest: SHA1
-Server Temp Key: ECDH, P-256, 256 bits
----
-SSL handshake has read 5008 bytes and written 501 bytes
----
-New, TLSv1/SSLv3, Cipher is ECDHE-RSA-AES128-GCM-SHA256
-Server public key is 2048 bit
-Secure Renegotiation IS supported
-Compression: NONE
-Expansion: NONE
-No ALPN negotiated
-SSL-Session:
-    Protocol  : TLSv1.2
-    Cipher    : ECDHE-RSA-AES128-GCM-SHA256
-    Session-ID: [redacted]
-    Session-ID-ctx:
-    Master-Key: [redacted]
-    Key-Arg   : None
-    PSK identity: None
-    PSK identity hint: None
-    SRP username: None
-    TLS session ticket lifetime hint: 300 (seconds)
-    TLS session ticket: [redacted]
-
-    Start Time: 1437406064
-    Timeout   : 300 (sec)
-    Verify return code: 10 (certificate has expired)
----
-        </div>
-
-      <button id="errorTryAgain">Copy text to clipboard</button>
 
       </div>
 
