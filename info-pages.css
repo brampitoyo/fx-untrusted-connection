@@ -200,8 +200,8 @@ div#certificateErrorReportingPanel {
   -moz-padding-start: 5em;
 }
 
-#errorTitleNotConnected {
-  background-image: url("aboutNotConnected_info_45.svg");
+#errorTitleNetworkError {
+  background-image: url("aboutNetworkError_info_45.svg");
   background-position: left 0;
   background-repeat: no-repeat;
   background-size: 3em;
@@ -371,7 +371,7 @@ button:disabled,
 
   .title,
   /* Error-page specific */ #errorTitle,
-  /* Error-page specific */ #errorTitleNotConnected,
+  /* Error-page specific */ #errorTitleNetworkError,
   /* Error-page specific */ #errorTitleBlockedSite,
   /* Error-page specific */ #errorTitleText[sslv3=true] {
     background-image: none !important;
