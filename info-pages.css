@@ -371,8 +371,12 @@ button:disabled,
 
   .title,
   /* Error-page specific */ #errorTitle,
+<<<<<<< HEAD
   /* Error-page specific */ #errorTitleNetworkError,
   /* Error-page specific */ #errorTitleBlockedSite,
+=======
+  /* Error-page specific */ #errorTitleNotConnected,
+>>>>>>> parent of 2e346e8... Make icon disappear on blocked site pages
   /* Error-page specific */ #errorTitleText[sslv3=true] {
     background-image: none !important;
     -moz-padding-start: 0;
